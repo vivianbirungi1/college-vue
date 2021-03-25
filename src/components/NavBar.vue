@@ -27,8 +27,8 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
 
-        <b-nav-item to="/login" right>Login</b-nav-item>
-        <b-nav-item to="/register" right>Register</b-nav-item>
+        <b-nav-item  to="/login" right>Login</b-nav-item>
+        <b-nav-item  to="/register" right>Register</b-nav-item>
 
         <b-nav-item v-if="loggedIn" @click="logout()" right>Logout</b-nav-item>
 
@@ -51,7 +51,7 @@ export default{
       let token = localStorage.getItem('token');
 
       axios.get('http://college.api:8000/api/logout', {
-        headers: {Authorization: "Bearer" + token}
+        headers: {Authorization: "Bearer " + token}
       })
       .then(response => {
         console.log(response.data);
