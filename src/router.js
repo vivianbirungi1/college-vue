@@ -9,6 +9,16 @@ import CoursesShow from './views/courses/Show'
 import CoursesEdit from './views/courses/Edit'
 import CoursesCreate from './views/courses/Create'
 
+//enrolments
+import EnrolmentsIndex from './views/enrolments/index'
+import EnrolmentShow from './views/enrolments/Show'
+import EnrolmentCreate from './views/enrolments/Create'
+
+//Lecturer
+import LecturersIndex from './views/lecturers/index'
+import LecturerShow from './views/lecturers/Show'
+import LecturerCreate from './views/lecturers/Create'
+
 Vue.use(Router)
 
 export default new Router ({
@@ -21,6 +31,8 @@ export default new Router ({
       component: Home
     },
 
+    //login and register
+
     {
       path: '/login',
       name: 'login',
@@ -32,6 +44,8 @@ export default new Router ({
       name: 'register',
       component: Register
     },
+
+    //courses
 
     {
       path: '/courses',
@@ -56,5 +70,49 @@ export default new Router ({
       name: 'courses_edit',
       component: CoursesEdit
     },
+
+    //enrolments
+
+    {
+      path: '/enrolments',
+      name: 'enrolments_index',
+      component: EnrolmentsIndex
+    },
+
+    {
+      path: '/enrolments/:id',
+      name: 'enrolments_show',
+      component: EnrolmentShow
+    },
+
+    {
+      path: '/enrolments/create',
+      name: 'enrolments_create',
+      component: EnrolmentCreate
+    },
+
+    //lecturers
+
+    {
+      path: '/lecturers',
+      name: 'lecturers_index',
+      component: LecturersIndex
+    },
+
+    {
+      path: '/lecturers/:id',
+      name: 'lecturers_show',
+      component: LecturerShow
+    },
+
+    {
+      path: '/lecturers/create',
+      name: 'lecturers_create',
+      component: LecturerCreate
+    },
+
+
+
+
   ]
 });

@@ -13,11 +13,14 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from '@/config/api';
 
 export default {
   name: 'CourseCreate',
   components: {
+  },
+  props: {
+    loggedIn: Boolean
   },
   data() {
     return{
@@ -45,7 +48,7 @@ export default {
         level: this.form.level,
       },
       {
-        headers: { Authorization: "Bearer" + token}
+        headers: { Authorization: "Bearer " + token}
       })
       .then(response => {
         console.log(response.data);

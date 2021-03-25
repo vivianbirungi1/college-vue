@@ -1,15 +1,15 @@
 <template>
   <div>
 
-    <h4>Title: </h4> {{ course.title }}<br>
-    <h4>Code: </h4> {{ course.code }}<br>
-    <h4>Description: </h4> {{ course.description }}<br>
-    <h4>Points: </h4> {{ course.points }}<br>
-    <h4>Level: </h4> {{ course.level }}<br>
+    <h4>Date: </h4> {{ enrolment.date }}<br>
+    <h4>Time: </h4> {{ enrolment.time }}<br>
+    <h4>Status: </h4> {{ enrolment.status }}<br>
+    <h4>Course ID: </h4> {{ enrolment.course_id }}<br>
+    <h4>Lecturer ID: </h4> {{ enrolment.lecturer_id }}<br>
 
-    <b-table striped hover :item="course.enrolments">
+    <b-table striped hover :item="enrolment.enrolments">
       <!-- <template #cell(title)="data">
-        <router-link :to="{ name: 'courses_show', params: { id: data.item.id }}">{{data.item.title }}</router-link>
+        <router-link :to="{ name: 'enrolments_show', params: { id: data.item.id }}">{{data.item.title }}</router-link>
       </template> -->
     </b-table>
 
@@ -19,7 +19,7 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'CourseShow',
+  name: 'EnrolmentShow',
   components: {
   },
   props: {
@@ -27,18 +27,18 @@ export default {
   },
   data() {
     return{
-      course: []
+      enrolment: []
     }
   },
   mounted(){
     let token = localStorage.getItem('token');
 
-    axios.get(`http://college.api:8000/api/courses/${this.$route.params.id}`, {
+    axios.get(`http://college.api:8000/api/enrolments/${this.$route.params.id}`, {
       headers: {Authorization: "Bearer " + token}
     })
     .then(response => {
       console.log(response.data);
-      this.course = response.data.data;
+      this.enrolment = response.data.data;
     })
     .catch(error => {
       console.log(error)

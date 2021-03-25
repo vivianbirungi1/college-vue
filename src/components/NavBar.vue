@@ -19,7 +19,9 @@
 
       <b-navbar-nav>
         <b-nav-item to="/">Home</b-nav-item>
-        <b-nav-item v-if="loggedIn" to="{name: 'courses_index'}">Courses</b-nav-item>
+        <b-nav-item v-if="loggedIn" :to="{ name: 'courses_index' }">Courses</b-nav-item>
+        <b-nav-item v-if="loggedIn" :to="{ name: 'enrolments_index' }">Enrolments</b-nav-item>
+        <b-nav-item v-if="loggedIn" :to="{ name: 'lecturers_index' }">Lecturers</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->

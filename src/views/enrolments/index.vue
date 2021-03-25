@@ -1,20 +1,15 @@
 <template>
   <div>
-    This is the Courses Index page
+    This is the Enrolments Index page
 
     <br>
 
-    <!-- <button @click="getCourses()">Get Courses</button>
-
-    <button @click="logout()">Logout</button> -->
-
-    <router-link :to="{ name: 'courses_create'}">Create</router-link>
+    <router-link :to="{ name: 'enrolments_create'}">Create</router-link>
 
     <br><br>
-    <!-- {{ courses[0].title}} -->
-    <b-table striped hover :items="courses" :fields="fields">
-      <template #cell(title)="data">
-        <router-link :to="{ name: 'courses_show', params: { id: data.item.id }}">{{data.item.title }}</router-link>
+    <b-table striped hover :items="enrolments" :fields="fields">
+      <template #cell(date)="data">
+        <router-link :to="{ name: 'enrolments_show', params: { id: data.item.id }}">{{data.item.date }}</router-link>
       </template>
     </b-table>
 
@@ -24,7 +19,7 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'CoursesIndex',
+  name: 'EnrolmentsIndex',
   components: {
 
   },
@@ -35,37 +30,35 @@ export default {
     return{
       fields: [
     {
-      key: 'title',
+      key: 'date',
       sortable: true,
     },
-    'code',
-    'points',
     {
-      key: 'level',
+      key: 'time',
       sortable: true,
     }
   ],
-      courses: []
+      enrolments: []
     }
   },
   created(){
-    console.log("testing")
+  //  console.log("testing")
     if(this.loggedIn){
-    this.getCourses();
+    this.getEnrolments();
   }
   else{
     this.$router.push({name: 'home'});
   }
   },
   methods:{
-    getCourses(){
+    getEnrolments(){
       let token = localStorage.getItem('token');
-      axios.get('http://college.api:8000/api/courses', {
+      axios.get('http://college.api:8000/api/enrolments', {
         headers: {Authorization: "Bearer " + token}
       })
       .then(response => {
         console.log(response.data);
-        this.courses = response.data.data;
+        this.enrolments = response.data.data;
       })
       .catch(error => {
         console.log(error)
