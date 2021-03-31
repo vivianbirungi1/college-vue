@@ -7,7 +7,7 @@
     <h4>Phone: </h4> {{ lecturer.phone }}<br>
 
     <b-table striped hover :item="lecturer.enrolments">
-    
+
     </b-table>
 
   </div>
@@ -30,7 +30,7 @@ export default {
   mounted(){
     let token = localStorage.getItem('token');
 
-    axios.get(`http://college.api:8000/api/lecturers/${this.$route.params.id}`, {
+    axios.get(`https://college-api-viv.herokuapp.com/api/lecturers/${this.$route.params.id}`, {
       headers: {Authorization: "Bearer " + token}
     })
     .then(response => {

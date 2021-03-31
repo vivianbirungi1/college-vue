@@ -53,7 +53,7 @@ export default {
   methods:{
     getEnrolments(){
       let token = localStorage.getItem('token');
-      axios.get('http://college.api:8000/api/enrolments', {
+      axios.get('https://college-api-viv.herokuapp.com/api/enrolments', {
         headers: {Authorization: "Bearer " + token}
       })
       .then(response => {

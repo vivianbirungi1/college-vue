@@ -33,7 +33,7 @@ export default {
   mounted(){
     let token = localStorage.getItem('token');
 
-    axios.get(`http://college.api:8000/api/courses/${this.$route.params.id}`, {
+    axios.get(`https://college-api-viv.herokuapp.com/api/courses/${this.$route.params.id}`, {
       headers: {Authorization: "Bearer " + token}
     })
     .then(response => {

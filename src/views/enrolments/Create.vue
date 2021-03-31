@@ -40,7 +40,7 @@ export default {
     createEnrolment() {
       let token = localStorage.getItem('token');
 
-      axios.post('http://college.api:8000/api/enrolments', {
+      axios.post('https://college-api-viv.herokuapp.com/api/enrolments', {
         date: this.form.date,
         time: this.form.time,
         status: this.form.status,

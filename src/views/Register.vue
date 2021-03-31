@@ -39,7 +39,7 @@ export default {
   },
   methods:{
     register(){
-      axios.post('http://college.api:8000/api/register', {
+      axios.post('https://college-api-viv.herokuapp.com/api/register', {
         name: this.form.name,
         email: this.form.email,
         password: this.form.password,

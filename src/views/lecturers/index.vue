@@ -57,7 +57,7 @@ export default {
   methods:{
     getLecturers(){
       let token = localStorage.getItem('token');
-      axios.get('http://college.api:8000/api/lecturers', {
+      axios.get('https://college-api-viv.herokuapp.com/api/lecturers', {
         headers: {Authorization: "Bearer " + token}
       })
       .then(response => {
