@@ -75,7 +75,7 @@ export default {
     logout(){
       let token = localStorage.getItem('token');
 
-      axios.get('http://college.api:8000/api/logout', {
+      axios.get('https://college-api-viv.herokuapp.com/api/logout', {
         headers: {Authorization: "Bearer " + token}
       })
       .then(response => {
