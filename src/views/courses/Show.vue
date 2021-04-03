@@ -13,6 +13,8 @@
       </template> -->
     </b-table>
 
+    <b-button pill variant="dark" :to="{ name: 'courses_index' }">Back</b-button>
+
   </div>
 </template>
 

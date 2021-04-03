@@ -16,6 +16,9 @@
       <template #cell(title)="data">
         <router-link :to="{ name: 'courses_show', params: { id: data.item.id }}">{{data.item.title }}</router-link>
       </template>
+      <template #cell(actions)="data">
+        <router-link :to="{ name: 'courses_edit', params: { id: data.item.id }}">edit</router-link>
+      </template>
     </b-table>
 
   </div>
@@ -43,7 +46,8 @@ export default {
     {
       key: 'level',
       sortable: true,
-    }
+    },
+    'actions'
   ],
       courses: []
     }
@@ -81,6 +85,7 @@ export default {
       .then(response => {
         console.log(response.data);
         console.log("LOGGED OUT");
+
       })
       .catch(error => {
         console.log(error)

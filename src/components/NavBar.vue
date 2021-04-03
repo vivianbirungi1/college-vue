@@ -46,6 +46,16 @@ export default{
   props: {
     loggedIn: Boolean,
   },
+  components:{
+  },
+  data(){
+    return {
+      form: {
+        email: "",
+        password: ""
+      }
+    }
+  },
   methods:{
     logout(){
       let token = localStorage.getItem('token');
@@ -56,7 +66,8 @@ export default{
       .then(response => {
         console.log(response.data);
         this.$emit('logout');
-        this.$router.push({ name: 'home' });
+        console.log("Logged Out");
+        this.$router.replace({ name: 'home' });
       })
       .catch(error => {
         console.log(error)
@@ -66,23 +77,6 @@ export default{
       localStorage.removeItem('token');
     }
   },
-  data(){
-    return{
-      fields: [
-        {
-          key: 'title',
-          sortable: true,
-        },
-        'code',
-        'points',
-        {
-          key: 'level',
-          sortable: true,
-        }
-      ],
-      courses: []
-    }
-  }
 
 }
 </script>

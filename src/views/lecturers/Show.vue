@@ -10,6 +10,8 @@
 
     </b-table>
 
+    <b-button pill variant="dark" :to="{ name: 'lecturers_index' }">Back</b-button>
+
   </div>
 </template>
 

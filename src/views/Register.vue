@@ -10,11 +10,11 @@
     </b-form-group>
 
     <b-form-group class="textbox" id="input-group-1" label="Email:" label-for="input-1">
-      <b-form-input id="input-1" v-model="form.email2" type="email" placeholder="Enter email" required></b-form-input>
+      <b-form-input id="input-1" v-model="form.email" type="email" placeholder="Enter email" required></b-form-input>
       </b-form-group>
 
       <b-form-group class="textbox" id="input-group-1" label="Password:" label-for="input-1">
-        <b-form-input id="input-1" v-model="form.password2" type="password" placeholder="Enter password" required></b-form-input>
+        <b-form-input id="input-1" v-model="form.password" type="password" placeholder="Enter password" required></b-form-input>
         </b-form-group>
 
         <b-button pill variant="dark" class="submit" @onclick="register()" > Submit</b-button>
@@ -31,7 +31,7 @@ export default {
   data() {
     return{
       form: {
-        name: "",
+         name: "",
         email: "",
         password: ""
       }
@@ -42,7 +42,7 @@ export default {
       axios.post('https://college-api-viv.herokuapp.com/api/register', {
         name: this.form.name,
         email: this.form.email,
-        password: this.form.password,
+        password: this.form.password
       })
       .then(response => {
         console.log(response.data);
