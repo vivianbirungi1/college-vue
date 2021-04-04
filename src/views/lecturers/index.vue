@@ -13,6 +13,9 @@
       <template #cell(name)="data">
         <router-link :to="{ name: 'lecturers_show', params: { id: data.item.id }}">{{data.item.name }}</router-link>
       </template>
+      <template #cell(actions)="data">
+        <router-link :to="{ name: 'lecturers_edit', params: { id: data.item.id }}">edit</router-link>
+      </template>
     </b-table>
 
   </div>
@@ -40,7 +43,8 @@ export default {
     {
       key: 'email',
       sortable: true,
-    }
+    },
+    'actions'
   ],
       lecturers: []
     }

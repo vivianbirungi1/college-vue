@@ -11,6 +11,9 @@
       <template #cell(date)="data">
         <router-link :to="{ name: 'enrolments_show', params: { id: data.item.id }}">{{data.item.date }}</router-link>
       </template>
+      <template #cell(actions)="data">
+        <router-link :to="{ name: 'enrolments_edit', params: { id: data.item.id }}">edit</router-link>
+      </template>
     </b-table>
 
   </div>
@@ -36,7 +39,8 @@ export default {
     {
       key: 'time',
       sortable: true,
-    }
+    },
+    'actions'
   ],
       enrolments: []
     }

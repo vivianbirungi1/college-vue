@@ -10,9 +10,13 @@
 
     <router-link :to="{ name: 'courses_create'}">Create</router-link>
 
+    <br>
+    <input type="text" v-model="term" />
+    <b-button @click="searchCourse()">Search</b-button>
+
     <br><br>
     <!-- {{ courses[0].title}} -->
-    <b-table striped hover :items="courses" :fields="fields">
+    <b-table striped hover :items="filteredCourses" :fields="fields">
       <template #cell(title)="data">
         <router-link :to="{ name: 'courses_show', params: { id: data.item.id }}">{{data.item.title }}</router-link>
       </template>
@@ -49,11 +53,20 @@ export default {
     },
     'actions'
   ],
-      courses: []
+      courses: [],
+      term: "",
+      filteredCourses: []
+    }
+  },
+  watch: {
+    term: function () {
+    //  console.log('New: ', newTerm);
+    //  console.log('Old: ', oldTerm);
+      this.searchCourse();
     }
   },
   created(){
-    console.log("testing")
+  //  console.log("testing")
     if(this.loggedIn){
     this.getCourses();
   }
@@ -62,6 +75,25 @@ export default {
   }
   },
   methods:{
+    searchCourse(){
+      this.filteredCourses = this.courses.filter(course => {
+      if(course.title.toLowerCase().includes(this.term.toLowerCase())){
+        return true
+      }
+
+      if(course.code.toLowerCase().includes(this.term.toLowerCase())){
+        return true
+      }
+
+      // if(course.points.toLowerCase().includes(this.term.toLowerCase())){
+      //   return true
+      // }
+      //
+      // if(course.level.toLowerCase().includes(this.term.toLowerCase())){
+      //   return true
+      // }
+      });
+    },
     getCourses(){
       let token = localStorage.getItem('token');
       axios.get('https://college-api-viv.herokuapp.com/api/courses', {
@@ -70,6 +102,7 @@ export default {
       .then(response => {
         console.log(response.data);
         this.courses = response.data.data;
+        this.filteredCourses = this.courses;
       })
       .catch(error => {
         console.log(error)
