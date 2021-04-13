@@ -5,20 +5,21 @@
     <br>
     <br>
 <!-- data below is bound to these input fields -->
-  <b-form-group class="textbox" id="input-group-1" label="Name:" label-for="input-1">
-    <b-form-input id="input-1" v-model="form.name" type="text" placeholder="Enter name" required></b-form-input>
+<b-form>
+  <b-form-group class="textbox" label="Name:" label-for="input-1">
+    <b-form-input v-model="form.name" type="text" placeholder="Enter name" required></b-form-input>
     </b-form-group>
 
-    <b-form-group class="textbox" id="input-group-1" label="Email:" label-for="input-1">
-      <b-form-input id="input-1" v-model="form.email" type="email" placeholder="Enter email" required></b-form-input>
+    <b-form-group class="textbox" label="Email:" label-for="input-1">
+      <b-form-input v-model="form.email" type="email" placeholder="Enter email" required></b-form-input>
       </b-form-group>
 
-      <b-form-group class="textbox" id="input-group-1" label="Password:" label-for="input-1">
-        <b-form-input id="input-1" v-model="form.password" type="password" placeholder="Enter password" required></b-form-input>
+      <b-form-group class="textbox" label="Password:" label-for="input-1">
+        <b-form-input v-model="form.password" type="password" placeholder="Enter password" required></b-form-input>
         </b-form-group>
 
-        <b-button pill variant="dark" class="submit" @onclick="register()" > Submit</b-button>
-
+        <b-button pill variant="dark" class="submit" @click="register()">Submit</b-button>
+</b-form>
   </div>
 </template>
 

@@ -1,12 +1,30 @@
 <template>
   <div>
 
-  name:  <input type="text" v-model="form.name" /><br>
+  <!-- name:  <input type="text" v-model="form.name" /><br>
   address:  <input type="text" v-model="form.address" /> <span v-if="errors.address"> {{errors.address}} </span> <br>
   email:  <input type="text" v-model="form.email" /><br>
-  phone:  <input type="text" v-model="form.phone" />  <span v-if="errors.phone"> {{errors.phone}} </span> <br>
+  phone:  <input type="text" v-model="form.phone" />  <span v-if="errors.phone"> {{errors.phone}} </span> <br> -->
 
-  <button @click="editLecturer()">Submit</button>
+  <b-form-group class="textbox"  label="Name" label-for="input-1">
+     <b-form-input type="text" v-model="form.name" ></b-form-input>
+   </b-form-group>
+   <br>
+   <b-form-group class="textbox"  label="Address" label-for="input-1">
+      <b-form-input type="text" v-model="form.address" ></b-form-input>
+    </b-form-group>
+    <br>
+    <b-form-group class="textbox"  label="Email" label-for="input-1">
+       <b-form-input type="text" v-model="form.email" ></b-form-input>
+     </b-form-group>
+     <br>
+     <b-form-group class="textbox"  label="Phone" label-for="input-1">
+        <b-form-input type="text" v-model="form.phone" ></b-form-input>
+      </b-form-group>
+  <br>
+
+  <b-button pill variant="outline-dark" @click="editLecturer()">Submit</b-button>
+  <b-button pill variant="dark" :to="{ name: 'lecturers_index' }">Back</b-button>
 
   </div>
 </template>

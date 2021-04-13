@@ -1,13 +1,36 @@
 <template>
   <div>
 
-  title:  <input type="text" v-model="form.title" /><br>
+  <!-- title:  <input type="text" v-model="form.title" /><br>
   code:  <input type="text" v-model="form.code" /> <span v-if="errors.code"> {{errors.code}} </span> <br>
   description:  <input type="text" v-model="form.description" /><br>
   points:  <input type="text" v-model="form.points" />  <span v-if="errors.points"> {{errors.points}} </span> <br>
-  level:  <input type="text" v-model="form.level" />  <span v-if="errors.level"> {{errors.level}} </span> <br>
+  level:  <input type="text" v-model="form.level" />  <span v-if="errors.level"> {{errors.level}} </span> <br> -->
 
-  <button @click="createCourse()">Submit</button>
+  <b-form-group class="textbox"  label="Title" label-for="input-1">
+     <b-form-input type="text" v-model="form.title" ></b-form-input>
+   </b-form-group>
+   <br>
+   <b-form-group class="textbox"  label="Code" label-for="input-1">
+      <b-form-input type="text" v-model="form.code" ></b-form-input>
+    </b-form-group>
+    <br>
+    <b-form-group class="textbox"  label="Description" label-for="input-1">
+       <b-form-input type="text" v-model="form.description" ></b-form-input>
+     </b-form-group>
+     <br>
+     <b-form-group class="textbox"  label="Points" label-for="input-1">
+        <b-form-input type="text" v-model="form.points" ></b-form-input>
+      </b-form-group>
+      <br>
+      <b-form-group class="textbox"  label="Level" label-for="input-1">
+         <b-form-input type="text" v-model="form.level" ></b-form-input>
+       </b-form-group>
+       <br>
+
+
+  <b-button pill variant="outline-dark" @click="createCourse()">Submit</b-button>
+  <b-button pill variant="dark" :to="{ name: 'courses_index' }">Back</b-button>
 
   </div>
 </template>

@@ -1,18 +1,24 @@
 <template>
   <div>
-    This is the Enrolments Index page
+  
+
+    <router-link :to="{ name: 'enrolments_create'}"><b-button class="float-right" pill variant="warning">Add an Enrolment</b-button></router-link>
 
     <br>
-
-    <router-link :to="{ name: 'enrolments_create'}">Create</router-link>
+    <input type="text" v-model="term" />
+    <b-button @click="searchEnrolment()">Search</b-button>
 
     <br><br>
-    <b-table striped hover :items="enrolments" :fields="fields">
-      <template #cell(date)="data">
-        <router-link :to="{ name: 'enrolments_show', params: { id: data.item.id }}">{{data.item.date }}</router-link>
+    <b-table striped hover :items="filteredEnrolments" :fields="fields" :busy="isBusy">
+      <template #table-busy>
+        <div class="text-center">
+          <b-spinner class="align-middle m-5" style="width: 4rem; height: 4rem;" variant="danger"></b-spinner>
+        </div>
       </template>
+
       <template #cell(actions)="data">
-        <router-link :to="{ name: 'enrolments_edit', params: { id: data.item.id }}">edit</router-link>
+        <router-link :to="{ name: 'enrolments_show', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-primary">&#128065;</b-button></router-link>
+        <router-link :to="{ name: 'enrolments_edit', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-warning">&#128394;</b-button></router-link>
       </template>
     </b-table>
 
@@ -42,7 +48,15 @@ export default {
     },
     'actions'
   ],
-      enrolments: []
+      enrolments: [],
+      term: "",
+      filteredEnrolments: [],
+      isBusy: false
+    }
+  },
+  watch: {
+    term: function () {
+      this.searchEnrolment();
     }
   },
   created(){
@@ -55,14 +69,30 @@ export default {
   }
   },
   methods:{
+    searchEnrolment(){
+      this.filteredEnrolments = this.enrolments.filter(enrolment => {
+      if(enrolment.date.toLowerCase().includes(this.term.toLowerCase())){
+        return true
+      }
+
+      if(enrolment.time.toLowerCase().includes(this.term.toLowerCase())){
+        return true
+      }
+
+      });
+    },
     getEnrolments(){
       let token = localStorage.getItem('token');
+      this.isBusy = true;
+
       axios.get('https://college-api-viv.herokuapp.com/api/enrolments', {
         headers: {Authorization: "Bearer " + token}
       })
       .then(response => {
         console.log(response.data);
         this.enrolments = response.data.data;
+        this.filteredEnrolments = this.enrolments;
+        this.isBusy = false;
       })
       .catch(error => {
         console.log(error)

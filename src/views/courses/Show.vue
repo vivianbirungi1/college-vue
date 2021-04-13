@@ -14,6 +14,7 @@
     </b-table>
 
     <b-button pill variant="dark" :to="{ name: 'courses_index' }">Back</b-button>
+    <b-button pill variant="danger" @click="deleteCourse()">Delete</b-button>
 
   </div>
 </template>
@@ -48,6 +49,23 @@ export default {
     })
   },
   methods:{
+    deleteCourse(){
+      let token = localStorage.getItem('token');
+
+      axios.delete(`https://college-api-viv.herokuapp.com/api/courses/${this.$route.params.id}`, {
+        headers: {Authorization: "Bearer " + token}
+      })
+      .then(response => {
+        console.log(response.data);
+        this.$router.replace({
+          name: "courses_index"
+        })
+      })
+      .catch(error => {
+        console.log(error)
+        console.log(error.response.data)
+      })
+    },
 
   },
 }
