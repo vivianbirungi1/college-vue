@@ -9,9 +9,9 @@
 
 
     <div>
-      <b-card>
+      <b-card class="darktheme">
 
-        <b-card-text>
+        <b-card-text class="darktheme">
     <h4>Date: </h4>
     <p>{{ enrolment.date }}</p>
     <br>

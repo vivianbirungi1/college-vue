@@ -1,12 +1,18 @@
 <template>
   <div>
 
+    <div class="home">
+      <h1>Create a Course</h1>
+    </div>
+
+    <hr class="show">
   <!-- title:  <input type="text" v-model="form.title" /><br>
   code:  <input type="text" v-model="form.code" /> <span v-if="errors.code"> {{errors.code}} </span> <br>
   description:  <input type="text" v-model="form.description" /><br>
   points:  <input type="text" v-model="form.points" />  <span v-if="errors.points"> {{errors.points}} </span> <br>
   level:  <input type="text" v-model="form.level" />  <span v-if="errors.level"> {{errors.level}} </span> <br> -->
 
+<b-card class="darktheme">
   <b-form-group class="textbox"  label="Title" label-for="input-1">
      <b-form-input type="text" v-model="form.title" ></b-form-input>
    </b-form-group>
@@ -28,9 +34,12 @@
        </b-form-group>
        <br>
 
+     </b-card>
 
-  <b-button pill variant="outline-success" @click="createCourse()">Submit</b-button>
+<div class="home">
   <b-button pill variant="dark" :to="{ name: 'courses_index' }">Back</b-button>
+  <b-button pill variant="outline-success" @click="createCourse()">Submit</b-button>
+</div>
 
   </div>
 </template>

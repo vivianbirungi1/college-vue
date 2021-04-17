@@ -1,14 +1,19 @@
 body {
-    background-color: #02002e;
+    background-color: #030030;
     color: #ffffff;
 }
 
 h1,h2,h3,h4,h5,h6 {
-    color: #000000;
+    color: #ffffff;
     font-family: 'Lora', serif;
 }
 
 p{
-  color: #000000;
+  color: #ffffff;
   font-family: 'Roboto', sans-serif;
+}
+
+.darktheme{
+  background-color: #030030;
+  color: #ffffff;
 }

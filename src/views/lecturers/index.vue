@@ -5,6 +5,8 @@
       <h1>  Lecturers </h1>
     </div>
 
+    <hr class="show">
+
     <router-link :to="{ name: 'lecturers_create'}"><b-button class="float-right" pill variant="warning">Add a Lecturer</b-button></router-link>
 
     <br>
@@ -13,7 +15,7 @@
 
     <br><br>
 
-    <b-table striped hover :items="filteredLecturers" :fields="fields" :busy="isBusy">
+    <b-table class="darktheme" striped hover :items="filteredLecturers" :fields="fields" :busy="isBusy">
       <template #table-busy>
         <div class="text-center">
           <b-spinner class="align-middle m-5" style="width: 4rem; height: 4rem;" variant="danger"></b-spinner>

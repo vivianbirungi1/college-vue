@@ -1,11 +1,18 @@
 <template>
   <div>
 
+    <div class="home">
+    <h1>Create a Lecturer</h1>
+  </div>
+
+  <hr class="show">
+
   <!-- name:  <input type="text" v-model="form.name" /><br>
   address:  <input type="text" v-model="form.address" /> <span v-if="errors.address"> {{errors.address}} </span> <br>
   email:  <input type="text" v-model="form.email" /><br>
   phone:  <input type="text" v-model="form.phone" />  <span v-if="errors.phone"> {{errors.phone}} </span> <br> -->
 
+<b-card class="darktheme">
   <b-form-group class="textbox"  label="Name" label-for="input-1">
      <b-form-input type="text" v-model="form.name" ></b-form-input>
    </b-form-group>
@@ -22,12 +29,13 @@
         <b-form-input type="text" v-model="form.phone" ></b-form-input>
       </b-form-group>
   <br>
+</b-card>
 
 
-
-  <b-button pill variant="outline-success" @click="createLecturer()">Submit</b-button>
+<div class="home">
   <b-button pill variant="dark" :to="{ name: 'lecturers_index' }">Back</b-button>
-
+  <b-button pill variant="outline-success" @click="createLecturer()">Submit</b-button>
+</div>
 
   </div>
 </template>

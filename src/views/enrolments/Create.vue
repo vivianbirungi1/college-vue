@@ -1,7 +1,13 @@
 <template>
   <div>
 
+    <div class="home">
+      <h1> Create an Enrolment</h1>
+    </div>
 
+    <hr class="show">
+
+<b-card class="darktheme">
   <b-form-group class="textbox"  label="Date" label-for="input-1">
      <b-form-input type="date" v-model="form.date" ></b-form-input>
    </b-form-group>
@@ -72,11 +78,12 @@
           </b-form-group>
 
           <br>
+</b-card>
 
-
-  <b-button pill variant="outline-success" @click="createEnrolment()">Submit</b-button>
+<div class="home">
   <b-button pill variant="dark" :to="{ name: 'enrolments_index' }">Back</b-button>
-
+  <b-button pill variant="outline-success" @click="createEnrolment()">Submit</b-button>
+</div>
 
   </div>
 </template>

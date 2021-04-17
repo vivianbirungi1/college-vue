@@ -8,9 +8,10 @@
     <hr class="show">
 
     <div>
-      <b-card>
 
-        <b-card-text>
+      <b-card img-src="https://cdn.dribbble.com/users/62696/screenshots/15469534/media/d0cffa4596960fe986addeef5ea20a8c.gif" img-alt="Card gif" img-right class="darktheme">
+
+        <b-card-text class="darktheme">
     <h4>Code: </h4>
     <p> {{ course.code }}</p>
     <br>

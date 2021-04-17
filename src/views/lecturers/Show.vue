@@ -8,9 +8,9 @@
     <hr class="show">
 
     <div>
-      <b-card>
+      <b-card class="darktheme">
 
-        <b-card-text>
+        <b-card-text class="darktheme">
     <h4>Address: </h4>
     <p>{{ lecturer.address }}</p>
     <br>

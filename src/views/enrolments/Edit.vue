@@ -1,12 +1,18 @@
 <template>
   <div>
 
+    <div class="home">
+      <h1> Edit Enrolment</h1>
+    </div>
+
+    <hr class="show">
+
   <!-- date:  <input type="date" v-model="form.date" /><br>
   time:  <input type="time" v-model="form.time" /> <span v-if="errors.time"> {{errors.time}} </span> <br>
   status:  <input type="text" v-model="form.status" /><br>
   course_id:  <input type="text" v-model="form.course_id" />  <span v-if="errors.course_id"> {{errors.course_id}} </span> <br>
   lecturer_id:  <input type="text" v-model="form.lecturer_id" />  <span v-if="errors.lecturer_id"> {{errors.lecturer_id}} </span> <br> -->
-
+<b-card class="darktheme">
   <b-form-group class="textbox"  label="Date" label-for="input-1">
      <b-form-input type="date" v-model="form.date" ></b-form-input>
    </b-form-group>
@@ -71,11 +77,12 @@
             </b-form-group>
 
             <br>
+</b-card>
 
-
-
+<div class="home">
+  <b-button pill variant="dark" :to="{ name: 'enrolments_index' }">Back</b-button>
   <b-button pill variant="outline-success" @click="editEnrolment()">Submit</b-button>
-    <b-button pill variant="dark" :to="{ name: 'enrolments_index' }">Back</b-button>
+</div>
 
   </div>
 </template>
