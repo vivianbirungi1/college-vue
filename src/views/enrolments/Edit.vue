@@ -19,28 +19,28 @@
     <b-form-group label="Status">
               <b-row>
                 <b-col md="12">
-                    <b-button class="ml-2" pill variant="dark" size="sm" :state="state" name="radio-validation">
+                    <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
                       <b-form-radio v-model="form.status" value="assigned">Assigned</b-form-radio>
-                      <b-form-invalid-feedback :state="state">Please choose one</b-form-invalid-feedback>
-                      <b-form-valid-feedback :state="state">Looks good</b-form-valid-feedback>
+                      <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
+                      <b-form-valid-feedback>Looks good</b-form-valid-feedback>
                     </b-button>
 
-                    <b-button class="ml-2" pill variant="dark" size="sm" :state="state" name="radio-validation">
+                    <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
                       <b-form-radio v-model="form.status" value="associate">Associate</b-form-radio>
-                      <b-form-invalid-feedback :state="state">Please choose one</b-form-invalid-feedback>
-                      <b-form-valid-feedback :state="state">Looks good</b-form-valid-feedback>
+                      <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
+                      <b-form-valid-feedback>Looks good</b-form-valid-feedback>
                     </b-button>
 
-                    <b-button class="ml-2" pill variant="dark" size="sm" :state="state" name="radio-validation">
+                    <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
                       <b-form-radio v-model="form.status" value="career_break">Career Break</b-form-radio>
-                      <b-form-invalid-feedback :state="state">Please choose one</b-form-invalid-feedback>
-                      <b-form-valid-feedback :state="state">Looks good</b-form-valid-feedback>
+                      <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
+                      <b-form-valid-feedback>Looks good</b-form-valid-feedback>
                     </b-button>
 
-                    <b-button class="ml-2" pill variant="dark" size="sm" :state="state" name="radio-validation">
+                    <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
                       <b-form-radio v-model="form.status" value="interested">Interested</b-form-radio>
-                      <b-form-invalid-feedback :state="state">Please choose one</b-form-invalid-feedback>
-                      <b-form-valid-feedback :state="state">Looks good</b-form-valid-feedback>
+                      <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
+                      <b-form-valid-feedback>Looks good</b-form-valid-feedback>
                     </b-button>
                 </b-col>
               </b-row>
@@ -53,7 +53,7 @@
              <br>
 
   <b-form-group label="Lecturer Name">
-    <b-form-select v-model="selectedLecturer">
+    <b-form-select v-model="form.lecturer_id">
       <option v-for="lecturer in lecturers" :value="lecturer.id" :key="lecturer.id">
         {{ lecturer.name }}
       </option>
@@ -63,7 +63,7 @@
     <br><br>
 
     <b-form-group label="Course Name">
-              <b-form-select v-model="selectedCourse">
+              <b-form-select v-model="form.course_id">
                 <option v-for="course in courses" :value="course.id" :key="course.id">
                   {{ course.title }}
                 </option>
@@ -74,7 +74,7 @@
 
 
 
-  <b-button pill variant="outline-dark" @click="editEnrolment()">Submit</b-button>
+  <b-button pill variant="outline-success" @click="editEnrolment()">Submit</b-button>
     <b-button pill variant="dark" :to="{ name: 'enrolments_index' }">Back</b-button>
 
   </div>
@@ -97,15 +97,49 @@ export default {
         time: "",
         status: "",
         course_id: "",
-        lecturer_id: "",
+        lecturer_id: ""
       },
-      errors: []
+      errors: [],
+      lecturers: [],
+      courses: []
     }
   },
   mounted(){
-    this.getEnrolment()
+    this.getEnrolment();
+    this.getCourses();
+    this.getLecturers();
   },
   methods:{
+    getCourses(){
+      let token = localStorage.getItem('token');
+      this.isBusy = true;
+
+      axios.get('https://college-api-viv.herokuapp.com/api/courses', {
+        headers: {Authorization: "Bearer " + token}
+      })
+      .then(response => {
+        console.log(response.data);
+        this.courses = response.data.data;
+      })
+      .catch(error => {
+        console.log(error)
+        console.log(error.response.data)
+      })
+    },
+    getLecturers(){
+      let token = localStorage.getItem('token');
+      axios.get('https://college-api-viv.herokuapp.com/api/lecturers', {
+        headers: {Authorization: "Bearer " + token}
+      })
+      .then(response => {
+        console.log(response.data);
+        this.lecturers = response.data.data;
+      })
+      .catch(error => {
+        console.log(error)
+        console.log(error.response.data)
+      })
+    },
     getEnrolment(){
       let token = localStorage.getItem('token');
 

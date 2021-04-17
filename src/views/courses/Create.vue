@@ -29,7 +29,7 @@
        <br>
 
 
-  <b-button pill variant="outline-dark" @click="createCourse()">Submit</b-button>
+  <b-button pill variant="outline-success" @click="createCourse()">Submit</b-button>
   <b-button pill variant="dark" :to="{ name: 'courses_index' }">Back</b-button>
 
   </div>

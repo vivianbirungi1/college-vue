@@ -5,8 +5,11 @@
     <router-view :loggedIn="loggedIn" v-on:login="setLoggedIn" />
   </b-container>
 
-  <button @click="darkThemeSwitch">Switch Theme</button>
+  <b-button class="float-right" pill variant="outline-primary" @click="darkThemeSwitch">Switch Theme</b-button>
+
+
   </div>
+
 
 </template>
 
@@ -20,7 +23,7 @@ export default {
   },
   data(){
     return{
-      loggedIn: false
+      loggedIn: false,
     }
   },
   created(){

@@ -1,14 +1,33 @@
 <template>
   <div>
 
-    <h4>Name: </h4> {{ lecturer.name }}<br>
-    <h4>Address: </h4> {{ lecturer.address }}<br>
-    <h4>Email: </h4> {{ lecturer.email }}<br>
-    <h4>Phone: </h4> {{ lecturer.phone }}<br>
+    <div class="home">
+      <h1>Lecturer {{ lecturer.name}}</h1>
+    </div>
 
-    <b-table striped hover :item="lecturer.enrolments">
+    <hr class="show">
 
-    </b-table>
+    <div>
+      <b-card>
+
+        <b-card-text>
+    <h4>Address: </h4>
+    <p>{{ lecturer.address }}</p>
+    <br>
+    <h4>Email: </h4>
+    <p>{{ lecturer.email }}</p>
+    <br>
+    <h4>Phone: </h4>
+    <p>{{ lecturer.phone }}</p>
+        </b-card-text>
+      </b-card>
+  </div>
+
+  <br>
+
+    <!-- <b-table striped hover :item="lecturer.enrolments"> -->
+
+    <!-- </b-table> -->
 
     <b-button pill variant="dark" :to="{ name: 'lecturers_index' }">Back</b-button>
     <b-button pill variant="danger" @click="deleteLecturer()">Delete</b-button>
@@ -72,5 +91,9 @@ export default {
 <style>
 .home{
   text-align: center;
+}
+
+hr.show {
+  border: 1px solid #FFC107;
 }
 </style>

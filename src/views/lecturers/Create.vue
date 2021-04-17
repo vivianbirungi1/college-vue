@@ -25,7 +25,7 @@
 
 
 
-  <b-button pill variant="outline-dark" @click="createLecturer()">Submit</b-button>
+  <b-button pill variant="outline-success" @click="createLecturer()">Submit</b-button>
   <b-button pill variant="dark" :to="{ name: 'lecturers_index' }">Back</b-button>
 
 

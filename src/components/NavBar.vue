@@ -17,20 +17,25 @@
   <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand to="/">CollegeVue</b-navbar-brand>
 
-      <b-navbar-nav>
-        <b-nav-item to="/">Home</b-nav-item>
-        <b-nav-item v-if="loggedIn" :to="{ name: 'courses_index' }">Courses</b-nav-item>
-        <b-nav-item v-if="loggedIn" :to="{ name: 'enrolments_index' }">Enrolments</b-nav-item>
-        <b-nav-item v-if="loggedIn" :to="{ name: 'lecturers_index' }">Lecturers</b-nav-item>
+    <b-navbar-nav>
+    <b-nav-item to="/">Home</b-nav-item>
+  </b-navbar-nav>
+
+      <b-navbar-nav v-if="loggedIn">
+        <b-nav-item :to="{ name: 'courses_index' }">Courses</b-nav-item>
+        <b-nav-item :to="{ name: 'enrolments_index' }">Enrolments</b-nav-item>
+        <b-nav-item :to="{ name: 'lecturers_index' }">Lecturers</b-nav-item>
+      </b-navbar-nav>
+
+      <b-navbar-nav v-if="loggedIn" class="ml-auto">
+          <b-nav-item @click="logout()" right>Logout</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
+      <b-navbar-nav v-else class="ml-auto">
 
-        <b-nav-item  to="/login" right>Login</b-nav-item>
-        <b-nav-item  to="/register" right>Register</b-nav-item>
-
-        <b-nav-item v-if="loggedIn" @click="logout()" right>Logout</b-nav-item>
+        <b-nav-item to="/login" right>Login</b-nav-item>
+        <b-nav-item to="/register" right>Register</b-nav-item>
 
       </b-navbar-nav>
   </b-navbar>
@@ -67,7 +72,7 @@ export default{
         console.log(response.data);
         this.$emit('logout');
         console.log("Logged Out");
-        this.$router.replace({ name: 'home' });
+        this.$router.replace({ name: 'login' });
       })
       .catch(error => {
         console.log(error)

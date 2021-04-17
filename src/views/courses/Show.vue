@@ -1,17 +1,33 @@
 <template>
   <div>
 
-    <h4>Title: </h4> {{ course.title }}<br>
-    <h4>Code: </h4> {{ course.code }}<br>
-    <h4>Description: </h4> {{ course.description }}<br>
-    <h4>Points: </h4> {{ course.points }}<br>
-    <h4>Level: </h4> {{ course.level }}<br>
+    <div class="home">
+      <h1> Course {{ course.title }}</h1>
+    </div>
 
-    <b-table striped hover :item="course.enrolments">
-      <!-- <template #cell(title)="data">
-        <router-link :to="{ name: 'courses_show', params: { id: data.item.id }}">{{data.item.title }}</router-link>
-      </template> -->
-    </b-table>
+    <hr class="show">
+
+    <div>
+      <b-card>
+
+        <b-card-text>
+    <h4>Code: </h4>
+    <p> {{ course.code }}</p>
+    <br>
+    <h4>Description: </h4>
+    <p> {{ course.description }}</p>
+    <br>
+    <h4>Points: </h4>
+    <p> {{ course.points }}</p>
+    <br>
+    <h4>Level: </h4>
+    <p> {{ course.level }}</p>
+  </b-card-text>
+
+  </b-card>
+  </div>
+
+    <br>
 
     <b-button pill variant="dark" :to="{ name: 'courses_index' }">Back</b-button>
     <b-button pill variant="danger" @click="deleteCourse()">Delete</b-button>
@@ -74,5 +90,9 @@ export default {
 <style>
 .home{
   text-align: center;
+}
+
+hr.show {
+  border: 1px solid #FFC107;
 }
 </style>

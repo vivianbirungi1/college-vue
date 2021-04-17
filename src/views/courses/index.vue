@@ -1,39 +1,23 @@
 <template>
   <div>
 
+    <div class="home">
+      <h1>  Courses </h1>
+    </div>
 
-    <!-- <button @click="getCourses()">Get Courses</button>
-
-    <button @click="logout()">Logout</button> -->
 
     <router-link :to="{ name: 'courses_create'}"><b-button class="float-right" pill variant="warning">Add a Course</b-button></router-link>
 
     <br>
-    <input type="text" v-model="term" />
-    <b-button @click="searchCourse()">Search</b-button>
+
+    <input class="border" type="text" placeholder="Search" v-model="term" />
+    <span @click="searchCourse()"></span>
+
 
     <br><br>
 
-    <!-- <select v-model="selectedLecturer">
-      <option v-for="lecturer in lecturers" :value="lecturer.id" :key="lecturer.id">
-        {{ lecturer.name }}
-      </option>
-    </select>
-    <br>
-    <span>Selected Lecturer: {{ selectedLecturer }}</span>
-
-    <br><br>
-
-    <select v-model="selectedCourse">
-      <option v-for="course in courses" v-bind:value="course.id" :key="course.id">
-        {{ course.title }}
-      </option>
-    </select>
-    <br>
-    <span>Selected Course: {{ selectedCourse }}</span> -->
 
     <br>
-    <!-- {{ courses[0].title}} -->
     <b-table striped hover :items="filteredCourses" :fields="fields" :busy="isBusy">
       <template #table-busy>
         <div class="text-center">
@@ -42,9 +26,9 @@
       </template>
 
       <template #cell(actions)="data">
-        <router-link :to="{ name: 'courses_show', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-primary">&#128065;</b-button></router-link>
-        <router-link :to="{ name: 'courses_edit', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-warning">&#128394;</b-button></router-link>
-        <b-button @click="deleteCourse(id)" class="float-right" pill variant="outline-danger">&#10060;</b-button>
+        <router-link :to="{ name: 'courses_show', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-primary"><i class="fas fa-eye"></i></b-button></router-link>
+        <router-link :to="{ name: 'courses_edit', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-warning"><i class="fas fa-edit"></i></b-button></router-link>
+        <b-button @click="deleteCourse(data.item.id)" class="float-right" pill variant="outline-danger"><i class="fas fa-trash"></i></b-button>
       </template>
     </b-table>
 
@@ -103,8 +87,8 @@ export default {
   methods:{
     deleteCourse(id){
       let token = localStorage.getItem('token');
-      const course = this.courses.indexOf(id);
-      this.courses.splice(course, 1);
+      // const course = this.courses.indexOf(id);
+      // this.courses.splice(course, 1);
 
       axios.delete(`https://college-api-viv.herokuapp.com/api/courses/${id}`, {
         headers: {
@@ -113,7 +97,7 @@ export default {
       })
       .then(response => {
           console.log(response.data);
-          this.course = response.data.data;
+          // this.course = response.data.data;
         })
         .catch(error => {
           console.log(error)
@@ -191,4 +175,9 @@ export default {
 .home{
   text-align: center;
 }
+
+.border{
+  border-radius: 30px;
+}
+
 </style>

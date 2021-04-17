@@ -20,28 +20,28 @@
   <b-form-group label="Status">
             <b-row>
               <b-col md="12">
-                  <b-button class="ml-2" pill variant="dark" size="sm" :state="state" name="radio-validation">
+                  <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
                     <b-form-radio v-model="form.status" value="assigned">Assigned</b-form-radio>
-                    <b-form-invalid-feedback :state="state">Please choose one</b-form-invalid-feedback>
-                    <b-form-valid-feedback :state="state">Looks good</b-form-valid-feedback>
+                    <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
+                    <b-form-valid-feedback>Looks good</b-form-valid-feedback>
                   </b-button>
 
-                  <b-button class="ml-2" pill variant="dark" size="sm" :state="state" name="radio-validation">
+                  <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
                     <b-form-radio v-model="form.status" value="associate">Associate</b-form-radio>
-                    <b-form-invalid-feedback :state="state">Please choose one</b-form-invalid-feedback>
-                    <b-form-valid-feedback :state="state">Looks good</b-form-valid-feedback>
+                    <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
+                    <b-form-valid-feedback>Looks good</b-form-valid-feedback>
                   </b-button>
 
-                  <b-button class="ml-2" pill variant="dark" size="sm" :state="state" name="radio-validation">
+                  <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
                     <b-form-radio v-model="form.status" value="career_break">Career Break</b-form-radio>
-                    <b-form-invalid-feedback :state="state">Please choose one</b-form-invalid-feedback>
-                    <b-form-valid-feedback :state="state">Looks good</b-form-valid-feedback>
+                    <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
+                    <b-form-valid-feedback>Looks good</b-form-valid-feedback>
                   </b-button>
 
-                  <b-button class="ml-2" pill variant="dark" size="sm" :state="state" name="radio-validation">
+                  <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
                     <b-form-radio v-model="form.status" value="interested">Interested</b-form-radio>
-                    <b-form-invalid-feedback :state="state">Please choose one</b-form-invalid-feedback>
-                    <b-form-valid-feedback :state="state">Looks good</b-form-valid-feedback>
+                    <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
+                    <b-form-valid-feedback>Looks good</b-form-valid-feedback>
                   </b-button>
               </b-col>
             </b-row>
@@ -54,7 +54,7 @@
            <br>
 
 <b-form-group label="Lecturer Name">
-  <b-form-select v-model="selectedLecturer">
+  <b-form-select v-model="form.lecturer_id">
     <option v-for="lecturer in lecturers" :value="lecturer.id" :key="lecturer.id">
       {{ lecturer.name }}
     </option>
@@ -64,7 +64,7 @@
   <br><br>
 
   <b-form-group label="Course Name">
-            <b-form-select v-model="selectedCourse">
+            <b-form-select v-model="form.course_id">
               <option v-for="course in courses" :value="course.id" :key="course.id">
                 {{ course.title }}
               </option>
@@ -74,7 +74,7 @@
           <br>
 
 
-  <b-button pill variant="outline-dark" @click="createEnrolment()">Submit</b-button>
+  <b-button pill variant="outline-success" @click="createEnrolment()">Submit</b-button>
   <b-button pill variant="dark" :to="{ name: 'enrolments_index' }">Back</b-button>
 
 
@@ -107,12 +107,13 @@ export default {
       errors: []
     }
   },
-  computed: {
-      state() {
-        return Boolean(this.value)
-      }
-    },
+  // computed: {
+  //     state() {
+  //       return Boolean(this.value)
+  //     }
+  //   },
   mounted(){
+    this.createEnrolment();
     this.getCourses();
     this.getLecturers();
   },
@@ -155,9 +156,14 @@ export default {
         date: this.form.date,
         time: this.form.time,
         status: this.form.status,
-        course_id: this.form.selectedCourse,
-        lecturer_id: this.form.selectedLecturer,
+        course_id: this.form.course_id,
+        lecturer_id: this.form.lecturer_id,
       },
+      console.log(this.form.date),
+      console.log(this.form.time),
+      console.log(this.form.status),
+      console.log(this.form.lecturer_id),
+      console.log(this.form.course_id),
       {
         headers: { Authorization: "Bearer " + token}
       })

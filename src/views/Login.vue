@@ -41,7 +41,7 @@ export default {
         console.log(response.data);
         localStorage.setItem('token', response.data.token);
         this.$emit('login');
-        this.$router.replace({ name: 'courses_index' });
+        this.$router.replace({ name: 'home' });
       })
       .catch(error => {
         console.log(error)

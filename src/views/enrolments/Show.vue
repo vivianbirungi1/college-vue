@@ -1,17 +1,38 @@
 <template>
   <div>
 
-    <h4>Date: </h4> {{ enrolment.date }}<br>
-    <h4>Time: </h4> {{ enrolment.time }}<br>
-    <h4>Status: </h4> {{ enrolment.status }}<br>
-    <h4>Course ID: </h4> {{ enrolment.course_id }}<br>
-    <h4>Lecturer ID: </h4> {{ enrolment.lecturer_id }}<br>
+    <div class="home">
+      <h1> Enrolment</h1>
+    </div>
 
-    <b-table striped hover :item="enrolment.enrolments">
-      <!-- <template #cell(title)="data">
-        <router-link :to="{ name: 'enrolments_show', params: { id: data.item.id }}">{{data.item.title }}</router-link>
-      </template> -->
-    </b-table>
+    <hr class="show">
+
+
+    <div>
+      <b-card>
+
+        <b-card-text>
+    <h4>Date: </h4>
+    <p>{{ enrolment.date }}</p>
+    <br>
+    <h4>Time: </h4>
+    <p>{{ enrolment.time }}</p>
+    <br>
+    <h4>Status: </h4>
+    <p>{{ enrolment.status }}</p>
+    <br>
+    <h4>Course ID: </h4>
+    <p> {{ enrolment.course_id }}</p>
+    <br>
+    <h4>Lecturer ID: </h4>
+    <p>{{ enrolment.lecturer_id }}</p>
+
+  </b-card-text>
+
+  </b-card>
+  </div>
+
+  <br>
 
     <b-button pill variant="dark" :to="{ name: 'enrolments_index' }">Back</b-button>
     <b-button pill variant="danger" @click="deleteEnrolment()">Delete</b-button>
@@ -74,5 +95,9 @@ export default {
 <style>
 .home{
   text-align: center;
+}
+
+hr.show {
+  border: 1px solid #FFC107;
 }
 </style>

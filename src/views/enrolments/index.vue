@@ -1,12 +1,16 @@
 <template>
   <div>
-  
+
+    <div class="home">
+      <h1>  Enrolments </h1>
+    </div>
 
     <router-link :to="{ name: 'enrolments_create'}"><b-button class="float-right" pill variant="warning">Add an Enrolment</b-button></router-link>
 
     <br>
-    <input type="text" v-model="term" />
-    <b-button @click="searchEnrolment()">Search</b-button>
+
+    <input class="border" type="text" placeholder="Search" v-model="term" />
+    <span @click="searchEnrolment()"></span>
 
     <br><br>
     <b-table striped hover :items="filteredEnrolments" :fields="fields" :busy="isBusy">
@@ -17,8 +21,8 @@
       </template>
 
       <template #cell(actions)="data">
-        <router-link :to="{ name: 'enrolments_show', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-primary">&#128065;</b-button></router-link>
-        <router-link :to="{ name: 'enrolments_edit', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-warning">&#128394;</b-button></router-link>
+        <router-link :to="{ name: 'enrolments_show', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-primary"><i class="fas fa-eye"></i></b-button></router-link>
+        <router-link :to="{ name: 'enrolments_edit', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-warning"><i class="fas fa-edit"></i></b-button></router-link>
       </template>
     </b-table>
 

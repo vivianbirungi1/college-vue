@@ -28,7 +28,7 @@
        </b-form-group>
        <br>
 
-  <b-button pill variant="outline-dark" @click="editCourse()">Submit</b-button>
+  <b-button pill variant="outline-success" @click="editCourse()">Submit</b-button>
   <b-button pill variant="dark" :to="{ name: 'courses_index' }">Back</b-button>
 
   </div>
