@@ -2,7 +2,7 @@
   <div>
 
     <div class="home">
-      <h1>  Courses </h1>
+      <h1 data-aos="zoom-in">  Courses </h1>
     </div>
 
     <hr class="show">

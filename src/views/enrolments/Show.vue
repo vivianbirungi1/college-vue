@@ -2,14 +2,17 @@
   <div>
 
     <div class="home">
-      <h1> Enrolment</h1>
+      <h1 data-aos="zoom-in"> Enrolment</h1>
     </div>
 
     <hr class="show">
 
 
-    <div>
-      <b-card class="darktheme">
+    <div data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0">
+      <b-card img-src="https://cdn.dribbble.com/users/62696/screenshots/6515630/_render_dirbol.gif" img-width="550" img-alt="Card gif" width="290" img-right class="darktheme">
 
         <b-card-text class="darktheme">
     <h4>Date: </h4>

@@ -14,7 +14,7 @@
   </div> -->
 
   <div>
-  <b-navbar toggleable="lg" type="dark" variant="dark">
+  <b-navbar toggleable="lg" type="light" variant="warning">
     <b-navbar-brand to="/">CollegeVue</b-navbar-brand>
 
     <b-navbar-nav>

@@ -2,7 +2,7 @@
   <div>
 
     <div class="home">
-      <h1> Edit Enrolment</h1>
+      <h1 data-aos="zoom-in"> Edit Enrolment</h1>
     </div>
 
     <hr class="show">
@@ -12,7 +12,9 @@
   status:  <input type="text" v-model="form.status" /><br>
   course_id:  <input type="text" v-model="form.course_id" />  <span v-if="errors.course_id"> {{errors.course_id}} </span> <br>
   lecturer_id:  <input type="text" v-model="form.lecturer_id" />  <span v-if="errors.lecturer_id"> {{errors.lecturer_id}} </span> <br> -->
-<b-card class="darktheme">
+<b-card class="darktheme" data-aos="fade-up"
+     data-aos-easing="linear"
+     data-aos-duration="300">
   <b-form-group class="textbox"  label="Date" label-for="input-1">
      <b-form-input type="date" v-model="form.date" ></b-form-input>
    </b-form-group>

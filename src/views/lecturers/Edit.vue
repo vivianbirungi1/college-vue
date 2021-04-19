@@ -2,7 +2,7 @@
   <div>
 
     <div class="home">
-      <h1> Edit Lecturer </h1>
+      <h1 data-aos="zoom-in"> Edit Lecturer </h1>
     </div>
 
     <hr class="show">
@@ -11,7 +11,9 @@
   address:  <input type="text" v-model="form.address" /> <span v-if="errors.address"> {{errors.address}} </span> <br>
   email:  <input type="text" v-model="form.email" /><br>
   phone:  <input type="text" v-model="form.phone" />  <span v-if="errors.phone"> {{errors.phone}} </span> <br> -->
-<b-card class="darktheme">
+<b-card class="darktheme" data-aos="fade-up"
+     data-aos-easing="linear"
+     data-aos-duration="300">
   <b-form-group class="textbox"  label="Name" label-for="input-1">
      <b-form-input type="text" v-model="form.name" ></b-form-input>
    </b-form-group>

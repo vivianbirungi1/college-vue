@@ -2,13 +2,16 @@
   <div>
 
     <div class="home">
-      <h1>Lecturer {{ lecturer.name}}</h1>
+      <h1 data-aos="zoom-in">Lecturer {{ lecturer.name}}</h1>
     </div>
 
     <hr class="show">
 
-    <div>
-      <b-card class="darktheme">
+    <div data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0">
+      <b-card img-src="https://cdn.dribbble.com/users/1761051/screenshots/14866682/media/cce6682c41c0b250dc637ca14c039e4e.gif" img-alt="Card gif" img-height="400" img-right class="darktheme">
 
         <b-card-text class="darktheme">
     <h4>Address: </h4>

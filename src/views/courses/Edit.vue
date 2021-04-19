@@ -2,7 +2,7 @@
   <div>
 
     <div class="home">
-    <h1> Edit Course </h1>
+    <h1 data-aos="zoom-in"> Edit Course </h1>
   </div>
 
     <hr class="show">
@@ -12,7 +12,9 @@
   description:  <input type="text" v-model="form.description" /><br>
   points:  <input type="text" v-model="form.points" />  <span v-if="errors.points"> {{errors.points}} </span> <br>
   level:  <input type="text" v-model="form.level" />  <span v-if="errors.level"> {{errors.level}} </span> <br> -->
-<b-card class="darktheme">
+<b-card class="darktheme" data-aos="fade-up"
+     data-aos-easing="linear"
+     data-aos-duration="300">
   <b-form-group class="textbox"  label="Title" label-for="input-1">
      <b-form-input type="text" v-model="form.title" ></b-form-input>
    </b-form-group>

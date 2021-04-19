@@ -2,7 +2,7 @@
   <div>
 
     <div class="home">
-    <h1>Create a Lecturer</h1>
+    <h1 data-aos="zoom-in">Create a Lecturer</h1>
   </div>
 
   <hr class="show">
@@ -12,7 +12,9 @@
   email:  <input type="text" v-model="form.email" /><br>
   phone:  <input type="text" v-model="form.phone" />  <span v-if="errors.phone"> {{errors.phone}} </span> <br> -->
 
-<b-card class="darktheme">
+<b-card class="darktheme" data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="300">
   <b-form-group class="textbox"  label="Name" label-for="input-1">
      <b-form-input type="text" v-model="form.name" ></b-form-input>
    </b-form-group>
@@ -31,6 +33,8 @@
   <br>
 </b-card>
 
+<br>
+
 
 <div class="home">
   <b-button pill variant="dark" :to="{ name: 'lecturers_index' }">Back</b-button>
@@ -41,7 +45,7 @@
 </template>
 
 <script>
-import axios from '@/config/api';
+import axios from 'axios';
 
 export default {
   name: 'LecturerCreate',

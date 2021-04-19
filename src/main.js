@@ -5,6 +5,10 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+//importing AOS doe animations
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 
 Vue.use(BootstrapVue)
 
@@ -12,5 +16,8 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  created () {
+   AOS.init()
+ }, //initializing aos
   render: h => h(App),
 }).$mount('#app')

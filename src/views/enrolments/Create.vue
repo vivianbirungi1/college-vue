@@ -2,12 +2,14 @@
   <div>
 
     <div class="home">
-      <h1> Create an Enrolment</h1>
+      <h1 data-aos="zoom-in"> Create an Enrolment</h1>
     </div>
 
     <hr class="show">
 
-<b-card class="darktheme">
+<b-card class="darktheme" data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="300">
   <b-form-group class="textbox"  label="Date" label-for="input-1">
      <b-form-input type="date" v-model="form.date" ></b-form-input>
    </b-form-group>
@@ -16,12 +18,6 @@
       <b-form-input type="time" v-model="form.time" ></b-form-input>
     </b-form-group>
     <br>
-
-  <!-- date:  <input type="date" v-model="form.date" /><br> -->
-  <!-- time:  <input type="time" v-model="form.time" /> <span v-if="errors.time"> {{errors.time}} </span> <br>
-  status:  <input type="text" v-model="form.status" /><br> -->
-  <!-- course_id:  <input type="text" v-model="form.course_id" />  <span v-if="errors.course_id"> {{errors.course_id}} </span> <br>
-  lecturer_id:  <input type="text" v-model="form.lecturer_id" />  <span v-if="errors.lecturer_id"> {{errors.lecturer_id}} </span> <br> -->
 
   <b-form-group label="Status">
             <b-row>
@@ -80,6 +76,8 @@
           <br>
 </b-card>
 
+<br>
+
 <div class="home">
   <b-button pill variant="dark" :to="{ name: 'enrolments_index' }">Back</b-button>
   <b-button pill variant="outline-success" @click="createEnrolment()">Submit</b-button>
@@ -114,20 +112,14 @@ export default {
       errors: []
     }
   },
-  // computed: {
-  //     state() {
-  //       return Boolean(this.value)
-  //     }
-  //   },
   mounted(){
-    this.createEnrolment();
+  //  this.createEnrolment();
     this.getCourses();
     this.getLecturers();
   },
   methods:{
     getCourses(){
       let token = localStorage.getItem('token');
-      this.isBusy = true;
 
       axios.get('https://college-api-viv.herokuapp.com/api/courses', {
         headers: {Authorization: "Bearer " + token}
@@ -166,19 +158,16 @@ export default {
         course_id: this.form.course_id,
         lecturer_id: this.form.lecturer_id,
       },
-      console.log(this.form.date),
-      console.log(this.form.time),
-      console.log(this.form.status),
-      console.log(this.form.lecturer_id),
-      console.log(this.form.course_id),
       {
         headers: { Authorization: "Bearer " + token}
       })
       .then(response => {
         console.log(response.data);
+        console.log("this is a response");
           this.$router.push({ name: 'enrolments_index' });
       })
       .catch(error => {
+        console.log("this is an error");
         console.log(error)
         console.log(error.response.data)
         if (error.response.data.errors) {
@@ -196,8 +185,5 @@ export default {
   text-align: center;
 }
 
-.indigo{
-  color: #ffffff;
-}
 
 </style>

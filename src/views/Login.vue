@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h1>Login</h1>
+    <h1 data-aos="zoom-in">Login</h1>
 
     <hr class="show">
 
@@ -10,7 +10,8 @@
     <b-card
     img-src="https://cdn.dribbble.com/users/1751513/screenshots/11220196/media/73356b2cdb13689a754b511cb447278d.png?compress=1&resize=800x600"
     img-alt="Card image"
-    img-left class="mb-3 darktheme">
+    img-left class="mb-3 darktheme"
+    data-aos="fade-down">
 <!-- data below is bound to these input fields -->
 <b-form-group class="textbox" id="input-group-1" label="Email" label-for="input-1">
    <b-form-input type="email" v-model="form.email" ></b-form-input>
@@ -27,14 +28,7 @@
 
 
 </b-card>
-    <!-- creating ripple effect in background -->
-      <div class='ripple-background'>
-      <div class='circle xxlarge shade1'></div>
-      <div class='circle xlarge shade2'></div>
-      <div class='circle large shade3'></div>
-      <div class='circle mediun shade4'></div>
-      <div class='circle small shade5'></div>
-    </div>
+
 
   </div>
 </template>
@@ -44,6 +38,9 @@ import axios from 'axios';
 export default {
   name: 'Login',
   components: {
+  },
+  props: {
+    loggedIn: Boolean
   },
   data() {
     return{

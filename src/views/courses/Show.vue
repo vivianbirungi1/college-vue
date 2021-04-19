@@ -2,14 +2,17 @@
   <div>
 
     <div class="home">
-      <h1> Course {{ course.title }}</h1>
+      <h1 data-aos="zoom-in"> Course {{ course.title }}</h1>
     </div>
 
     <hr class="show">
 
-    <div>
+    <div data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0">
 
-      <b-card img-src="https://cdn.dribbble.com/users/62696/screenshots/15469534/media/d0cffa4596960fe986addeef5ea20a8c.gif" img-alt="Card gif" img-right class="darktheme">
+      <b-card img-src="https://cdn.dribbble.com/users/1761051/screenshots/14866725/media/09d01ec2ceb691bffd8e952571ff633a.gif" img-width="500" img-alt="Card gif" img-right class="darktheme">
 
         <b-card-text class="darktheme">
     <h4>Code: </h4>
@@ -82,6 +85,9 @@ export default {
         console.log(error)
         console.log(error.response.data)
       })
+
+      //deleteEnrolment
+      
     },
 
   },
