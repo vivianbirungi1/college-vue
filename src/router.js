@@ -1,28 +1,36 @@
+//importing Vue and vue-router components
+//important that component names match the ones used below in routes.
 import Vue from 'vue'
 import Router from 'vue-router'
 
+//home, login, register components and views
 import Home from './views/Home'
 import Login from './views/Login'
 import Register from './views/Register'
+
+//course components and views
 import CoursesIndex from './views/courses/index'
 import CoursesShow from './views/courses/Show'
 import CoursesEdit from './views/courses/Edit'
 import CoursesCreate from './views/courses/Create'
 
-//enrolments
+//enrolments components and views
 import EnrolmentsIndex from './views/enrolments/index'
 import EnrolmentShow from './views/enrolments/Show'
 import EnrolmentCreate from './views/enrolments/Create'
 import EnrolmentsEdit from './views/enrolments/Edit'
 
-//Lecturer
+//Lecturers components and views
 import LecturersIndex from './views/lecturers/index'
 import LecturerShow from './views/lecturers/Show'
 import LecturerCreate from './views/lecturers/Create'
 import LecturersEdit from './views/lecturers/Edit'
 
+//installing VueRouter within the app
 Vue.use(Router)
 
+//storing route, components. paths and names below
+//important to have in correct order i.e. Create before Show to not have the route redirecting to the wrong page.
 export default new Router ({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -33,7 +41,7 @@ export default new Router ({
       component: Home
     },
 
-    //login and register
+    //login and register path, names and components
 
     {
       path: '/login',
@@ -47,7 +55,7 @@ export default new Router ({
       component: Register
     },
 
-    //courses
+    //courses path, name and components
 
     {
       path: '/courses',
@@ -73,7 +81,7 @@ export default new Router ({
       component: CoursesEdit
     },
 
-    //enrolments
+    //enrolments path, name and components
 
     {
       path: '/enrolments',
@@ -100,7 +108,7 @@ export default new Router ({
       component: EnrolmentsEdit
     },
 
-    //lecturers
+    //lecturers path, name and components
 
     {
       path: '/lecturers',

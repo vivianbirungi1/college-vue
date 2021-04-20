@@ -1,24 +1,28 @@
 <template>
   <div>
 
+    <!-- home styling element used to center text and animation applied on text using AOS library -->
     <div class="home">
       <h1 data-aos="zoom-in">  Courses </h1>
     </div>
 
     <hr class="show">
 
-
+<!-- button for Adding a course -->
     <router-link :to="{ name: 'courses_create'}"><b-button class="float-right" pill variant="warning">Add a Course</b-button></router-link>
 
     <br>
-
+<!-- search bar which listens for searchCourse method as user types -->
     <input class="border" type="text" placeholder="Search" v-model="term" />
     <span @click="searchCourse()"></span>
 
 
     <br><br>
 
-
+<!-- table created using bootstrap table -->
+<!-- filteredCourses array passed into items. -->
+<!-- isBusy triggers loading circle from Bootstrap -->
+<!-- actions cell containing edit and view icons to re-route to relevant pages. delete method not used here, rather used in Show -->
     <br>
     <b-table class="darktheme" striped hover :items="filteredCourses" :fields="fields" :busy="isBusy">
       <template #table-busy>
@@ -37,6 +41,15 @@
   </div>
 </template>
 
+<!-- fields defined in data. Sortable added to fields to allow user to sort by clicking arrows. -->
+<!-- title and code are sortable fields -->
+<!-- courses, lectureres array passed in and filteredCourses array passed in -->
+<!-- isBusy set to false if tabls has loaded. otherwise is true and spinner circle displays -->
+<!-- checking for term entered in search bar to filter through courses -->
+<!-- within created we run an if statement, if user is loggedin, then display methods other re-route to home as they are not authenticated to view data. -->
+<!-- deleteCourse method attempt unsuccessful, implemented within Show -->
+<!-- searchCourse goes through filteredCourses and returns the course matching the term inserted. Can be lower or upper case. Currenlty user can search through course title and code -->
+<!-- getCourse and getLecturers method used with get request retrieving courses from the API -->
 <script>
 import axios from 'axios';
 export default {
@@ -68,7 +81,7 @@ export default {
       filteredCourses: [],
       selectedCourse: "",
       selectedLecturer: "",
-      isBusy: false 
+      isBusy: false
     }
   },
   watch: {

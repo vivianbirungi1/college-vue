@@ -1,16 +1,17 @@
 <template>
   <div>
 
+    <!-- home styling element used to center text and animation applied on text using AOS library -->
     <div class="home">
       <h1 data-aos="zoom-in"> Edit Lecturer </h1>
     </div>
 
     <hr class="show">
 
-  <!-- name:  <input type="text" v-model="form.name" /><br>
-  address:  <input type="text" v-model="form.address" /> <span v-if="errors.address"> {{errors.address}} </span> <br>
-  email:  <input type="text" v-model="form.email" /><br>
-  phone:  <input type="text" v-model="form.phone" />  <span v-if="errors.phone"> {{errors.phone}} </span> <br> -->
+    <!-- dark theme applied to card to allow text and background to change -->
+    <!-- form placed within a card, animation applied using AOS library -->
+    <!-- errors displayed in span tag underneath each field if field is left empty or information is entered wrong -->
+
 <b-card class="darktheme" data-aos="fade-up"
      data-aos-easing="linear"
      data-aos-duration="300">
@@ -33,7 +34,8 @@
 
 <br>
 
-
+<!-- buttons centered -->
+<!-- submit listens for click and executes editLecturer method -->
 <div class="home">
   <b-button pill variant="dark" :to="{ name: 'lecturers_index' }">Back</b-button>
   <b-button pill variant="outline-success" @click="editLecturer()">Submit</b-button>
@@ -42,6 +44,9 @@
   </div>
 </template>
 
+<!-- getLecturer method with id retrievedd using get request -->
+<!-- editLecturer method uses axios.put request to update fields changed -->
+<!-- getLecturermethod passed in through mounted to load when page laods -->
 <script>
 import axios from '@/config/api';
 

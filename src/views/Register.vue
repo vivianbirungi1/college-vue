@@ -1,4 +1,5 @@
 <template>
+  <!-- using register styling to center content. Creating large header for page with AOS zoom in animation with yellow break line to separate form -->
   <div class="register">
   <h1 data-aos="zoom-in">  Register </h1>
 
@@ -7,6 +8,9 @@
     <br>
     <br>
 
+<!-- putting form within a bootstrap card -->
+<!-- image within card placed on the left side, image address from Dribbble. -->
+<!-- on the right side is the register form with fields -->
     <b-card
     img-src="https://cdn.dribbble.com/users/1751513/screenshots/14617095/media/16a993561b0cb2b99abf0cc94c08bc77.png?compress=1&resize=800x600"
     img-alt="Card image"
@@ -32,16 +36,26 @@
 
         <br>
         <br>
-
+<!-- submit button that will carry out register method once clicked -->
         <b-button pill variant="dark" class="submit" @click="register()">Submit</b-button>
 </b-form>
+<!-- closing b form -->
 
 </b-card>
+<!-- closing b card -->
 
 
   </div>
 </template>
+<!-- closing template -->
 
+
+<!-- open script tag -->
+<!-- importing axios from axios library -->
+<!-- form stored within data field -->
+<!-- errors array stored within data, outside of form -->
+<!-- register method carries out a post request to the api to validate the form when fields have been filled and submit button has been clicked -->
+<!-- if there is an error in the fields, an error respnse is returned in the console. -->
 <script>
 import axios from 'axios';
 export default {
@@ -68,7 +82,7 @@ export default {
       .then(response => {
         console.log(response.data);
         localStorage.setItem('token', response.data.token);
-        this.$router.replace({ name: 'courses_index' });
+        this.$router.replace({ name: 'home' });
       })
       .catch(error => {
         console.log(error)
@@ -81,7 +95,9 @@ export default {
   },
 }
 </script>
+<!-- closing script tag -->
 
+<!-- styling -->
 <style>
 .register{
   text-align: center;

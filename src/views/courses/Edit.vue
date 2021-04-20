@@ -1,17 +1,16 @@
 <template>
   <div>
 
+  <!-- home styling element used to center text and animation applied on text using AOS library -->
     <div class="home">
     <h1 data-aos="zoom-in"> Edit Course </h1>
   </div>
 
     <hr class="show">
 
-  <!-- title:  <input type="text" v-model="form.title" /><br>
-  code:  <input type="text" v-model="form.code" /> <span v-if="errors.code"> {{errors.code}} </span> <br>
-  description:  <input type="text" v-model="form.description" /><br>
-  points:  <input type="text" v-model="form.points" />  <span v-if="errors.points"> {{errors.points}} </span> <br>
-  level:  <input type="text" v-model="form.level" />  <span v-if="errors.level"> {{errors.level}} </span> <br> -->
+    <!-- dark theme applied to card to allow text and background to change -->
+    <!-- form placed within a card, animation applied using AOS library -->
+    <!-- errors displayed in span tag underneath each field if field is left empty or information is entered wrong -->
 <b-card class="darktheme" data-aos="fade-up"
      data-aos-easing="linear"
      data-aos-duration="300">
@@ -38,6 +37,8 @@
 
      <br>
 
+     <!-- buttons centered -->
+     <!-- submit listens for click and executes editCourse method -->
 <div class="home">
   <b-button pill variant="dark" :to="{ name: 'courses_index' }">Back</b-button>
   <b-button pill variant="outline-success" @click="editCourse()">Submit</b-button>
@@ -45,6 +46,9 @@
   </div>
 </template>
 
+<!-- getCourses method with id retrievedd using get request -->
+<!-- editCourse method uses axios.put request to update fields changed -->
+<!-- getCourse method passed in through mounted to load when page laods -->
 <script>
 import axios from '@/config/api';
 

@@ -1,4 +1,5 @@
 <template>
+  <!-- using login styling to center text content. Large Login header created with AOS zoom in animation -->
   <div class="login">
     <h1 data-aos="zoom-in">Login</h1>
 
@@ -7,6 +8,9 @@
     <br>
     <br>
 
+<!-- putting form within a card -->
+<!-- using a card image on the left. Image source from Dribbble -->
+<!-- register form fields on the right handside -->
     <b-card
     img-src="https://cdn.dribbble.com/users/1751513/screenshots/11220196/media/73356b2cdb13689a754b511cb447278d.png?compress=1&resize=800x600"
     img-alt="Card image"
@@ -26,6 +30,7 @@
 
   <br>
   <br>
+  <!-- submit button listnes for click and executes login method below -->
     <b-button pill variant="dark" @click="login()">Login</b-button>
 
 
@@ -34,7 +39,15 @@
 
   </div>
 </template>
+<!-- closing template -->
 
+<!-- open script tag -->
+<!-- importing axios from axios library -->
+<!-- passing in a loggedIn boolean varibale to store the toekn when user logs in -->
+<!-- form stored in data -->
+<!-- errors array passed in outside form but within data -->
+<!-- login method sends a post request when user clicks submit button. if fields are empty or incorrect, an error response is returned in the console. -->
+<!-- token is stored within the localStorage if login method is emitted successful and router pushes user to home page. -->
 <script>
 import axios from 'axios';
 export default {
@@ -77,6 +90,7 @@ export default {
 }
 </script>
 
+<!-- styling for centering text -->
 <style>
 .login{
   text-align: center;

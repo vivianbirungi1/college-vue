@@ -1,19 +1,26 @@
 <template>
   <div>
 
+    <!-- home styling element used to center text and animation applied on text using AOS library -->
     <div class="home">
       <h1 data-aos="zoom-in">  Enrolments </h1>
     </div>
 
     <hr class="show">
 
+<!-- button for Adding a enrolment -->
     <router-link :to="{ name: 'enrolments_create'}"><b-button class="float-right" pill variant="warning">Add an Enrolment</b-button></router-link>
 
     <br>
-
+<!-- search bar which listens for searchEnrolment method as user types -->
     <input class="border" type="text" placeholder="Search" v-model="term" />
     <span @click="searchEnrolment()"></span>
 
+
+    <!-- table created using bootstrap table -->
+    <!-- filteredEnrolments array passed into items. -->
+    <!-- isBusy triggers loading circle from Bootstrap -->
+    <!-- actions cell containing edit and view icons to re-route to relevant pages. delete method not used here, rather used in Show -->
     <br><br>
     <b-table class="darktheme" striped hover :items="filteredEnrolments" :fields="fields" :busy="isBusy">
       <template #table-busy>
@@ -31,6 +38,16 @@
   </div>
 </template>
 
+
+<!-- fields defined in data. Sortable added to fields to allow user to sort by clicking arrows. -->
+<!-- date and time are sortable fields -->
+<!-- enrolments array passed in and filteredEnrolments array passed in -->
+<!-- isBusy set to false if tabls has loaded. otherwise is true and spinner circle displays -->
+<!-- checking for term entered in search bar to filter through enrolments -->
+<!-- within created we run an if statement, if user is loggedin, then display methods other re-route to home as they are not authenticated to view data. -->
+<!-- deleteCourse method attempt unsuccessful, implemented within Show -->
+<!-- searchEnrolment goes through filteredEnrolments and returns the enrolment matching the term inserted. Can be lower or upper case. Currenlty user can search through enrolments date and time -->
+<!-- getEnrolment method used with get request retrieving enrolments from the API -->
 <script>
 import axios from 'axios';
 export default {

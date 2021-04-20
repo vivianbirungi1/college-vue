@@ -1,17 +1,17 @@
 <template>
   <div>
 
+    <!-- home styling element used to center text and animation applied on text using AOS library -->
     <div class="home">
       <h1 data-aos="zoom-in"> Edit Enrolment</h1>
     </div>
 
     <hr class="show">
 
-  <!-- date:  <input type="date" v-model="form.date" /><br>
-  time:  <input type="time" v-model="form.time" /> <span v-if="errors.time"> {{errors.time}} </span> <br>
-  status:  <input type="text" v-model="form.status" /><br>
-  course_id:  <input type="text" v-model="form.course_id" />  <span v-if="errors.course_id"> {{errors.course_id}} </span> <br>
-  lecturer_id:  <input type="text" v-model="form.lecturer_id" />  <span v-if="errors.lecturer_id"> {{errors.lecturer_id}} </span> <br> -->
+    <!-- dark theme applied to card to allow text and background to change -->
+    <!-- form placed within a card, animation applied using AOS library -->
+    <!-- errors displayed in span tag underneath each field if field is left empty or information is entered wrong -->
+    <!-- radio buttons used for status of enrolment being created and status chosen displayed in field below -->
 <b-card class="darktheme" data-aos="fade-up"
      data-aos-easing="linear"
      data-aos-duration="300">
@@ -60,6 +60,7 @@
 
              <br>
 
+   <!-- looping through lecturers array to display lecturers in dropdown option -->
   <b-form-group label="Lecturer Name">
     <b-form-select v-model="form.lecturer_id">
       <option v-for="lecturer in lecturers" :value="lecturer.id" :key="lecturer.id">
@@ -70,6 +71,7 @@
 
     <br><br>
 
+    <!-- looping through courses array to display lecturers in dropdown option -->
     <b-form-group label="Course Name">
               <b-form-select v-model="form.course_id">
                 <option v-for="course in courses" :value="course.id" :key="course.id">
@@ -83,6 +85,8 @@
 
 <br>
 
+<!-- buttons centered -->
+<!-- submit listens for click and executes editEnrolment method -->
 <div class="home">
   <b-button pill variant="dark" :to="{ name: 'enrolments_index' }">Back</b-button>
   <b-button pill variant="outline-success" @click="editEnrolment()">Submit</b-button>
@@ -91,6 +95,10 @@
   </div>
 </template>
 
+
+<!-- getEnrolments, getCourse and getLecturers method with id retrievedd using get request -->
+<!-- editEnrolments method use axios.put request to update fields changed -->
+<!-- getEnrolments, getCourse and getLecturers method passed in through mounted to load when page laods -->
 <script>
 import axios from '@/config/api';
 
@@ -123,7 +131,6 @@ export default {
   methods:{
     getCourses(){
       let token = localStorage.getItem('token');
-      this.isBusy = true;
 
       axios.get('https://college-api-viv.herokuapp.com/api/courses', {
         headers: {Authorization: "Bearer " + token}

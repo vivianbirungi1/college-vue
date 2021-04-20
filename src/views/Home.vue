@@ -1,16 +1,19 @@
 <template>
+  <!-- using home styling method to center content -->
   <div class="home">
-
+<!-- using AOS library to create animation on welcome and icon -->
     <h2 data-aos="zoom-in">  <i class="fas fa-graduation-cap size: 27x"></i> </h2>
       <h1 data-aos="zoom-in">  Welcome! </h1>
 
-
+<!-- yellow line -->
       <hr class="show">
 
-
+<!-- sub header for content below -->
       <h6>  What's available on the site...  </h6>
 
-
+<!-- card deck to store three cards for courses, lecturers and enrolments -->
+<!-- card images used from Dribbble. Using bootstrap text card overlay -->
+<!-- bootstrap button in center linking to pages -->
       <b-card-group deck>
 
       <b-card
@@ -94,25 +97,31 @@ export default {
 .home{
   text-align: center;
 }
+/* centering text */
 
 .spaceBtn{
   margin-top: 100px;
 }
+/* centering button in cards */
 
 
 h1,h2,h3,h4,h5,h6 {
     color: #000000;
     font-family: 'Lora', serif;
 }
+/* declaring font famly for headers and text color OUTSIDE of dark theme */
 
 p{
   color: #000000;
   font-family: 'Roboto', sans-serif;
 }
+/* declaring font family for p tag and color outside of dark theme */
 
+/* reversing dark theme from white text and dark background to dark text and light background */
 .darktheme{
   background-color: #f1f0ff;
   color: #000000;
 }
 
 </style>
+<!-- closing styling tag -->

@@ -1,12 +1,16 @@
 <template>
   <div>
 
+    <!-- home styling element used to center text and animation applied on text using AOS library -->
     <div class="home">
     <h1 data-aos="zoom-in">Create a Lecturer</h1>
   </div>
 
   <hr class="show">
 
+  <!-- dark theme applied to card to allow text and background to change -->
+  <!-- form placed within a card, animation applied using AOS library -->
+  <!-- errors displayed in span tag underneath each field if field is left empty or information is entered wrong -->
 <b-card class="darktheme" data-aos="fade-down"
      data-aos-easing="linear"
      data-aos-duration="300">
@@ -33,7 +37,8 @@
 
 <br>
 
-
+<!-- buttons centered -->
+<!-- submit listens for click and executes createLecturer method -->
 <div class="home">
   <b-button pill variant="dark" :to="{ name: 'lecturers_index' }">Back</b-button>
   <b-button pill variant="outline-success" @click="createLecturer()">Submit</b-button>
@@ -42,6 +47,14 @@
   </div>
 </template>
 
+<!-- import axios from axios library -->
+<!-- loggedIn boolean passed through to check whether loggedin is true or false -->
+<!-- data for from fields is stored below -->
+<!-- errors array passed outsdie form but within data -->
+<!-- createLecturer method executed when submit is clicked. token stored from localStorage is passed through. -->
+<!-- post request is sent to api to send data inputted from fields in form -->
+<!-- Bearer token is passed in for authorization -->
+<!-- if successful, user is pushed to lecturers index. if unsuccessful error repsonse is returned in the console. -->
 <script>
 import axios from 'axios';
 
