@@ -12,38 +12,36 @@
      data-aos-duration="300">
   <b-form-group class="textbox"  label="Date" label-for="input-1">
      <b-form-input type="date" v-model="form.date" ></b-form-input>
+     <span class="red" v-if="errors.date"> {{errors.date}} </span>
    </b-form-group>
    <br>
    <b-form-group class="textbox"  label="Time" label-for="input-1">
       <b-form-input type="time" v-model="form.time" ></b-form-input>
+      <span class="red" v-if="errors.date"> {{errors.date}} </span>
     </b-form-group>
     <br>
 
   <b-form-group label="Status">
             <b-row>
               <b-col md="12">
-                  <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
+                  <b-button class="ml-2" pill variant="light" size="sm">
                     <b-form-radio v-model="form.status" value="assigned">Assigned</b-form-radio>
-                    <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
-                    <b-form-valid-feedback>Looks good</b-form-valid-feedback>
+                    <span class="red" v-if="errors.status"> {{errors.status}} </span>
                   </b-button>
 
-                  <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
+                  <b-button class="ml-2" pill variant="light" size="sm" >
                     <b-form-radio v-model="form.status" value="associate">Associate</b-form-radio>
-                    <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
-                    <b-form-valid-feedback>Looks good</b-form-valid-feedback>
+                    <span class="red" v-if="errors.status"> {{errors.status}} </span>
                   </b-button>
 
-                  <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
+                  <b-button class="ml-2" pill variant="light" size="sm" >
                     <b-form-radio v-model="form.status" value="career_break">Career Break</b-form-radio>
-                    <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
-                    <b-form-valid-feedback>Looks good</b-form-valid-feedback>
+                    <span class="red" v-if="errors.status"> {{errors.status}} </span>
                   </b-button>
 
-                  <b-button class="ml-2" pill variant="light" size="sm" name="radio-validation">
+                  <b-button class="ml-2" pill variant="light" size="sm">
                     <b-form-radio v-model="form.status" value="interested">Interested</b-form-radio>
-                    <b-form-invalid-feedback>Please choose one</b-form-invalid-feedback>
-                    <b-form-valid-feedback>Looks good</b-form-valid-feedback>
+                    <span class="red" v-if="errors.status"> {{errors.status}} </span>
                   </b-button>
               </b-col>
             </b-row>
@@ -61,6 +59,7 @@
       {{ lecturer.name }}
     </option>
   </b-form-select>
+  <span class="red" v-if="errors.lecturer_id"> {{errors.lecturer_id}} </span>
 </b-form-group>
 
   <br><br>
@@ -71,6 +70,7 @@
                 {{ course.title }}
               </option>
             </b-form-select>
+            <span class="red" v-if="errors.course_id"> {{errors.course_id}} </span>
           </b-form-group>
 
           <br>
@@ -113,7 +113,6 @@ export default {
     }
   },
   mounted(){
-  //  this.createEnrolment();
     this.getCourses();
     this.getLecturers();
   },
@@ -163,11 +162,11 @@ export default {
       })
       .then(response => {
         console.log(response.data);
-        console.log("this is a response");
+      //  console.log("this is a response");
           this.$router.push({ name: 'enrolments_index' });
       })
       .catch(error => {
-        console.log("this is an error");
+      //  console.log("this is an error");
         console.log(error)
         console.log(error.response.data)
         if (error.response.data.errors) {

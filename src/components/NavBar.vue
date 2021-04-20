@@ -1,17 +1,5 @@
 <template>
-  <!-- <div>
-    <b-navbar type="dark" variant="dark">
-      <b-navbar-nav>
-        <b-nav-item to="/">Home</b-nav-item>
-        <b-nav-item :to="{name: 'courses_index'}">Courses</b-nav-item>
 
-        <b-nav-item to="/" right>Login</b-nav-item>
-        <b-nav-item to="/" right>Register</b-nav-item>
-
-
-      </b-navbar-nav>
-    </b-navbar>
-  </div> -->
 
   <div>
   <b-navbar toggleable="lg" type="light" variant="warning">

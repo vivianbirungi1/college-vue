@@ -17,22 +17,27 @@
      data-aos-duration="300">
   <b-form-group class="textbox"  label="Title" label-for="input-1">
      <b-form-input type="text" v-model="form.title" ></b-form-input>
+     <span class="red" v-if="errors.title"> {{errors.title}} </span>
    </b-form-group>
    <br>
    <b-form-group class="textbox"  label="Code" label-for="input-1">
       <b-form-input type="text" v-model="form.code" ></b-form-input>
+      <span class="red" v-if="errors.code"> {{errors.code}} </span>
     </b-form-group>
     <br>
     <b-form-group class="textbox"  label="Description" label-for="input-1">
        <b-form-input type="text" v-model="form.description" ></b-form-input>
+       <span class="red" v-if="errors.description"> {{errors.description}} </span>
      </b-form-group>
      <br>
-     <b-form-group class="textbox"  label="Points" label-for="input-1">
+     <b-form-group class="textbox"  label="Points" label-for="input-1" >
         <b-form-input type="text" v-model="form.points" ></b-form-input>
+         <span class="red" v-if="errors.points"> {{errors.points}} </span>
       </b-form-group>
       <br>
       <b-form-group class="textbox"  label="Level" label-for="input-1">
          <b-form-input type="text" v-model="form.level" ></b-form-input>
+         <span class="red" v-if="errors.level"> {{errors.level}} </span>
        </b-form-group>
        <br>
 
@@ -106,5 +111,10 @@ export default {
 <style>
 .home{
   text-align: center;
+}
+
+.red{
+  color: red;
+  font-size: 0.9em;
 }
 </style>

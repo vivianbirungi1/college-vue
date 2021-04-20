@@ -28,12 +28,16 @@
 
   <br>
 
-    <!-- <b-table striped hover :item="lecturer.enrolments"> -->
-
-    <!-- </b-table> -->
-
     <b-button pill variant="dark" :to="{ name: 'lecturers_index' }">Back</b-button>
-    <b-button pill variant="danger" @click="deleteLecturer()">Delete</b-button>
+    <b-button pill variant="danger" @click="showModal">Delete</b-button>
+
+    <b-modal ref="my-modal" hide-footer title="Deleting Lecturer">
+      <div class="d-block text-center">
+        <h4>Are you sure you want to delete this lecturer?</h4>
+      </div>
+      <b-button class="mt-3" pill variant="outline-danger" block @click="hideModal">No, nevermind</b-button>
+      <b-button class="mt-2" pill variant="outline-warning" block @click="deleteLecturer()">Yes, I am sure</b-button>
+    </b-modal>
 
   </div>
 </template>
@@ -69,22 +73,58 @@ export default {
   },
   methods:{
 
+    showModal(){
+      this.$refs['my-modal'].show()
+    },
+    hideModal(){
+      this.$refs['my-modal'].hide()
+    },
+
     deleteLecturer(){
       let token = localStorage.getItem('token');
 
-      axios.delete(`https://college-api-viv.herokuapp.com/api/lecturers/${this.$route.params.id}`, {
-        headers: {Authorization: "Bearer " + token}
-      })
-      .then(response => {
-        console.log(response.data);
-        this.$router.replace({
-          name: "lecturers_index"
+      let listOfDeleteRequests = this.lecturer.enrolments.map((current) => axios.delete("https://college-api-viv.herokuapp.com/api/enrolments/" +
+      current.id, {headers: { Authorization: "Bearer " + token }}
+    ));
+// log the contents of listOfDeleteRequests
+      axios.all(listOfDeleteRequests)
+      .then((response) => {
+        console.log(response);
+        axios.delete("https://college-api-viv.herokuapp.com/api/lecturers/" + this.lecturer.id, {
+          headers: { Authorization: "Bearer " + token }
         })
-      })
-      .catch(error => {
-        console.log(error)
-        console.log(error.response.data)
-      })
+        .then((response) => {
+          console.log(response.data);
+          this.$router.replace({
+              name: "lecturers_index"
+            })
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log(error.response.data)
+        });
+      });
+
+
+
+    // deleteLecturer(){
+    //   let token = localStorage.getItem('token');
+    //
+    //   axios.delete(`https://college-api-viv.herokuapp.com/api/lecturers/${this.$route.params.id}`, {
+    //     headers: {Authorization: "Bearer " + token}
+    //   })
+    //   .then(response => {
+    //     console.log(response.data);
+    //     this.$router.replace({
+    //       name: "lecturers_index"
+    //     })
+    //   })
+    //   .catch(error => {
+    //     console.log(error)
+    //     console.log(error.response.data)
+    //   })
+
+
     },
 
   },

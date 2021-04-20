@@ -7,28 +7,27 @@
 
   <hr class="show">
 
-  <!-- name:  <input type="text" v-model="form.name" /><br>
-  address:  <input type="text" v-model="form.address" /> <span v-if="errors.address"> {{errors.address}} </span> <br>
-  email:  <input type="text" v-model="form.email" /><br>
-  phone:  <input type="text" v-model="form.phone" />  <span v-if="errors.phone"> {{errors.phone}} </span> <br> -->
-
 <b-card class="darktheme" data-aos="fade-down"
      data-aos-easing="linear"
      data-aos-duration="300">
   <b-form-group class="textbox"  label="Name" label-for="input-1">
      <b-form-input type="text" v-model="form.name" ></b-form-input>
+     <span class="red" v-if="errors.name"> {{errors.name}} </span>
    </b-form-group>
    <br>
    <b-form-group class="textbox"  label="Address" label-for="input-1">
       <b-form-input type="text" v-model="form.address" ></b-form-input>
+      <span class="red" v-if="errors.address"> {{errors.address}} </span>
     </b-form-group>
     <br>
     <b-form-group class="textbox"  label="Email" label-for="input-1">
        <b-form-input type="text" v-model="form.email" ></b-form-input>
+       <span class="red" v-if="errors.email"> {{errors.email}} </span>
      </b-form-group>
      <br>
      <b-form-group class="textbox"  label="Phone" label-for="input-1">
         <b-form-input type="text" v-model="form.phone" ></b-form-input>
+        <span class="red" v-if="errors.phone"> {{errors.phone}} </span>
       </b-form-group>
   <br>
 </b-card>

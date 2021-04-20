@@ -16,14 +16,17 @@
 <b-form>
   <b-form-group class="textbox" label="Name" label-for="input-1">
     <b-form-input v-model="form.name" type="text" placeholder="Enter name" required></b-form-input>
+     <span class="red" v-if="errors.name"> {{errors.name}} </span>
     </b-form-group>
 
     <b-form-group class="textbox" label="Email" label-for="input-1">
       <b-form-input v-model="form.email" type="email" placeholder="Enter email" required></b-form-input>
+       <span class="red" v-if="errors.email"> {{errors.emaol}} </span>
       </b-form-group>
 
       <b-form-group class="textbox" label="Password" label-for="input-1">
         <b-form-input v-model="form.password" type="password" placeholder="Enter password" required></b-form-input>
+         <span class="red" v-if="errors.password"> {{errors.password}} </span>
         </b-form-group>
         <router-link :to=" { name: 'login'}">Already have an account? Login</router-link>
 
@@ -51,7 +54,8 @@ export default {
          name: "",
         email: "",
         password: ""
-      }
+      },
+      errors: []
     }
   },
   methods:{
@@ -69,6 +73,9 @@ export default {
       .catch(error => {
         console.log(error)
         console.log(error.response.data)
+        if (error.response.data.errors) {
+          this.errors = error.response.data.errors
+        }
       })
     }
   },

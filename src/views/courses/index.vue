@@ -30,7 +30,7 @@
       <template #cell(actions)="data">
         <router-link :to="{ name: 'courses_show', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-primary"><i class="fas fa-eye"></i></b-button></router-link>
         <router-link :to="{ name: 'courses_edit', params: { id: data.item.id }}"><b-button class="float-right" pill variant="outline-warning"><i class="fas fa-edit"></i></b-button></router-link>
-        <b-button @click="deleteCourse(data.item.id)" class="float-right" pill variant="outline-danger"><i class="fas fa-trash"></i></b-button>
+        <!-- <b-button @click="deleteCourse(data.item.id)" class="float-right" pill variant="outline-danger"><i class="fas fa-trash"></i></b-button> -->
       </template>
     </b-table>
 

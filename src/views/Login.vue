@@ -15,10 +15,12 @@
 <!-- data below is bound to these input fields -->
 <b-form-group class="textbox" id="input-group-1" label="Email" label-for="input-1">
    <b-form-input type="email" v-model="form.email" ></b-form-input>
+   <span class="red" v-if="errors.email"> {{errors.email}} </span>
  </b-form-group>
   <br>
   <b-form-group class="textbox" id="input-group-1" label="Password" label-for="input-1">
    <b-form-input type="password" v-model="form.password" ></b-form-input>
+   <span class="red" v-if="errors.password"> {{errors.password}} </span>
  </b-form-group>
  <router-link :to=" { name: 'register'}">New to the site? Click here to register.</router-link>
 
@@ -47,7 +49,8 @@ export default {
       form: {
         email: "",
         password: ""
-      }
+      },
+      errors: []
     }
   },
   methods:{
@@ -65,6 +68,9 @@ export default {
       .catch(error => {
         console.log(error)
         console.log(error.response.data)
+        if (error.response.data.errors) {
+          this.errors = error.response.data.errors
+        }
       })
     }
   },
