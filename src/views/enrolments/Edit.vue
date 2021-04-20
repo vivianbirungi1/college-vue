@@ -78,8 +78,10 @@
               </b-form-select>
             </b-form-group>
 
-            <br>
+
 </b-card>
+
+<br>
 
 <div class="home">
   <b-button pill variant="dark" :to="{ name: 'enrolments_index' }">Back</b-button>

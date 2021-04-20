@@ -82,16 +82,17 @@ export default new Router ({
     },
 
     {
+      path: '/enrolments/create',
+      name: 'enrolments_create',
+      component: EnrolmentCreate
+    },
+
+    {
       path: '/enrolments/:id',
       name: 'enrolments_show',
       component: EnrolmentShow
     },
 
-    {
-      path: '/enrolments/create',
-      name: 'enrolments_create',
-      component: EnrolmentCreate
-    },
 
     {
       path: '/enrolments/:id/edit',
@@ -108,16 +109,17 @@ export default new Router ({
     },
 
     {
+      path: '/lecturers/create',
+      name: 'lecturers_create',
+      component: LecturerCreate
+    },
+
+    {
       path: '/lecturers/:id',
       name: 'lecturers_show',
       component: LecturerShow
     },
 
-    {
-      path: '/lecturers/create',
-      name: 'lecturers_create',
-      component: LecturerCreate
-    },
 
     {
       path: '/lecturers/:id/edit',

@@ -39,7 +39,6 @@
          <b-form-input type="text" v-model="form.level" ></b-form-input>
          <span class="red" v-if="errors.level"> {{errors.level}} </span>
        </b-form-group>
-       <br>
 
      </b-card>
 

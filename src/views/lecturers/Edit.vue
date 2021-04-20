@@ -29,8 +29,9 @@
      <b-form-group class="textbox"  label="Phone" label-for="input-1">
         <b-form-input type="text" v-model="form.phone" ></b-form-input>
       </b-form-group>
-  <br>
 </b-card>
+
+<br>
 
 
 <div class="home">

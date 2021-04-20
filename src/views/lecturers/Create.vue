@@ -29,7 +29,6 @@
         <b-form-input type="text" v-model="form.phone" ></b-form-input>
         <span class="red" v-if="errors.phone"> {{errors.phone}} </span>
       </b-form-group>
-  <br>
 </b-card>
 
 <br>

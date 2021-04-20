@@ -44,6 +44,7 @@
       <b-button class="mt-2" pill variant="outline-warning" block @click="deleteCourse()">Yes, I am sure</b-button>
     </b-modal>
 
+
   </div>
 </template>
 
@@ -122,7 +123,7 @@ export default {
       //   console.log(error.response.data)
       // })
 
-      
+
 
     },
 

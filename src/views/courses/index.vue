@@ -68,7 +68,7 @@ export default {
       filteredCourses: [],
       selectedCourse: "",
       selectedLecturer: "",
-      isBusy: false
+      isBusy: false 
     }
   },
   watch: {

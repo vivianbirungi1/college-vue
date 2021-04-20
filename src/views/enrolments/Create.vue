@@ -73,7 +73,6 @@
             <span class="red" v-if="errors.course_id"> {{errors.course_id}} </span>
           </b-form-group>
 
-          <br>
 </b-card>
 
 <br>

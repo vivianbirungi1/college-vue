@@ -34,8 +34,9 @@
       <b-form-group class="textbox"  label="Level" label-for="input-1">
          <b-form-input type="text" v-model="form.level" ></b-form-input>
        </b-form-group>
-       <br>
      </b-card>
+
+     <br>
 
 <div class="home">
   <b-button pill variant="dark" :to="{ name: 'courses_index' }">Back</b-button>
