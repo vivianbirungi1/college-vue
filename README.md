@@ -1,5 +1,8 @@
 # college-vue
 
+## Link to hosted site:
+https://college-vue-viv-94519.web.app/
+
 ## Project setup
 ```
 npm install
